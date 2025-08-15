@@ -83,7 +83,9 @@ const Index = () => {
             <div className="mb-4">
               <div className="inline-flex items-center gap-3 text-2xl font-bold text-primary">
                 <span>✨</span>
-                <span>COLOR JOYERÍA</span>
+                <Link href="/admin-login">
+                  <span className="hover:text-primary/80 transition-colors">COLOR JOYERÍA</span>
+                </Link>
                 <span>✨</span>
               </div>
               {/* Para usar tu logo como imagen, reemplaza lo de arriba por esto:
@@ -96,11 +98,7 @@ const Index = () => {
             <p className="text-muted-foreground max-w-md mx-auto">
               Combina colores, formas y dijes para un accesorio 100% tuyo.
             </p>
-            <div className="mt-4">
-              <Link href="/orders" className="text-sm text-muted-foreground hover:text-primary underline">
-                Ver pedidos (Admin)
-              </Link>
-            </div>
+
           </div>
         </div>
       </div>

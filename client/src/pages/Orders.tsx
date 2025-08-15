@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 
 interface Order {
   id: number;
@@ -20,8 +20,18 @@ interface Order {
 }
 
 const Orders = () => {
+  const [, setLocation] = useLocation();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Verificar si el usuario está autenticado como admin
+  useEffect(() => {
+    const isAdminLoggedIn = localStorage.getItem('adminLoggedIn');
+    if (!isAdminLoggedIn) {
+      setLocation('/admin-login');
+      return;
+    }
+  }, [setLocation]);
 
   useEffect(() => {
     fetchOrders();
@@ -80,6 +90,11 @@ const Orders = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('adminLoggedIn');
+    setLocation('/');
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -105,11 +120,19 @@ const Orders = () => {
                 Gestiona todos los pedidos de Color Joyería
               </p>
             </div>
-            <Link href="/">
-              <Button variant="outline">
-                Volver al inicio
+            <div className="flex gap-2">
+              <Button 
+                variant="outline"
+                onClick={handleLogout}
+              >
+                Cerrar Sesión
               </Button>
-            </Link>
+              <Link href="/">
+                <Button variant="outline">
+                  Volver al inicio
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
