@@ -13,7 +13,7 @@ interface BaseSelectorProps {
 }
 
 const baseOptions: BaseOption[] = [
-  { id: "collar-cadena-dorada", name: "Collar de Cadena Dorada", price: 35, type: "collar" },
+  { id: "collar-sirena", name: "Collar Sirena", price: 10, type: "collar" },
   { id: "pulsera-cadena-dorada", name: "Pulsera de Cadena Dorada", price: 35, type: "pulsera" },
   { id: "collar-cadena-plata", name: "Collar de Cadena Plata", price: 32, type: "collar" },
   { id: "pulsera-cadena-plata", name: "Pulsera de Cadena Plata", price: 32, type: "pulsera" },
