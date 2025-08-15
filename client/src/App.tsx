@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route, Switch } from "wouter";
 import Index from "./pages/Index";
+import Checkout from "./pages/Checkout";
+import Orders from "./pages/Orders";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -15,6 +17,8 @@ const App = () => (
       <Sonner />
       <Switch>
         <Route path="/" component={Index} />
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/orders" component={Orders} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route component={NotFound} />
       </Switch>

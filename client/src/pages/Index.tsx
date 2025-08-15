@@ -3,8 +3,10 @@ import { BaseSelector } from "@/components/BaseSelector";
 import { CharmCategories } from "@/components/CharmCategories";
 import { OrderInput } from "@/components/OrderInput";
 import { Card } from "@/components/ui/card";
+import { useLocation, Link } from "wouter";
 
 const Index = () => {
+  const [, setLocation] = useLocation();
   const [selectedBase, setSelectedBase] = useState<string | null>(null);
   const [selectedCharms, setSelectedCharms] = useState<{ [key: string]: number }>({});
   const [orderText, setOrderText] = useState("");
@@ -52,13 +54,23 @@ const Index = () => {
   };
 
   const handleNext = () => {
-    console.log("Proceeding to next page with:", {
+    // Preparar datos del pedido
+    const orderData = {
       base: selectedBase,
+      baseName: baseOptions.find(b => b.id === selectedBase)?.name,
+      basePrice: baseOptions.find(b => b.id === selectedBase)?.price,
       charms: selectedCharms,
-      order: orderText
-    });
-    // Aquí irías a la siguiente página
-    alert("¡Perfecto! Ahora dime qué sigue en la siguiente página y te lo creo.");
+      charmPrices: charmPrices,
+      totalCharms: Object.values(selectedCharms).reduce((sum, qty) => sum + qty, 0),
+      orderText: orderText,
+      total: calculateTotal()
+    };
+
+    // Guardar datos en localStorage para la siguiente página
+    localStorage.setItem('currentOrder', JSON.stringify(orderData));
+    
+    // Navegar a checkout
+    setLocation('/checkout');
   };
 
   return (
@@ -79,11 +91,16 @@ const Index = () => {
               */}
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-              Diseña Tu Joyería
+              Crea tu nuevo accesorio favorito
             </h1>
             <p className="text-muted-foreground max-w-md mx-auto">
-              Personaliza tu pulsera o collar con dijes únicos
+              Combina colores, formas y dijes para un accesorio 100% tuyo.
             </p>
+            <div className="mt-4">
+              <Link href="/orders" className="text-sm text-muted-foreground hover:text-primary underline">
+                Ver pedidos (Admin)
+              </Link>
+            </div>
           </div>
         </div>
       </div>
