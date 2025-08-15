@@ -96,7 +96,7 @@ const Index = () => {
       <div className="relative">
         <ImageCarousel 
           images={carouselImages}
-          className="h-64 md:h-80 lg:h-96"
+          className="h-96 md:h-[500px] lg:h-[600px]"
         />
         
         {/* Contenido sobre el carrusel */}

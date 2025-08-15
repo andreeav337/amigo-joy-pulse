@@ -18,8 +18,13 @@ interface CharmCategoriesProps {
 }
 
 const charmData: Charm[] = [
-  // Iniciales (solo modelo - la inicial específica se indica en el paso 3)
-  { id: "letra-modelo", name: "Letra (Modelo)", price: 8, emoji: "🔤", category: "iniciales" },
+  // Iniciales
+  { id: "letra-a", name: "Letra A", price: 8, emoji: "🅰️", category: "iniciales" },
+  { id: "letra-b", name: "Letra B", price: 8, emoji: "🅱️", category: "iniciales" },
+  { id: "letra-c", name: "Letra C", price: 8, emoji: "©️", category: "iniciales" },
+  { id: "letra-d", name: "Letra D", price: 8, emoji: "🌛", category: "iniciales" },
+  { id: "letra-e", name: "Letra E", price: 8, emoji: "📧", category: "iniciales" },
+  { id: "letra-f", name: "Letra F", price: 8, emoji: "🎏", category: "iniciales" },
   
   // Charms de Colores
   { id: "corazon-rojo", name: "Corazón Rojo", price: 12, emoji: "❤️", category: "colores" },
@@ -47,7 +52,7 @@ const charmData: Charm[] = [
 ];
 
 const categoryNames = {
-  iniciales: "Iniciales (especifica la letra en el paso 3)",
+  iniciales: "Iniciales",
   colores: "Charms de Colores",
   dorados: "Charms Dorados",
   animales: "Animales"
