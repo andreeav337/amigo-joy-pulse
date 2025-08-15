@@ -37,7 +37,7 @@ export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) 
             className={`p-3 cursor-pointer transition-all hover:shadow-md ${
               selectedBase === option.id
                 ? 'ring-2 ring-primary bg-primary/5'
-                : 'hover:bg-accent/50'
+                : 'hover:bg-purple-50 dark:hover:bg-purple-950'
             }`}
             onClick={() => onSelectBase(option.id)}
             data-testid={`card-base-${option.id}`}
