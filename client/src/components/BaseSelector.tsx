@@ -5,6 +5,7 @@ interface BaseOption {
   name: string;
   price: number;
   type: "collar" | "pulsera";
+  image: string;
 }
 
 interface BaseSelectorProps {
@@ -13,11 +14,11 @@ interface BaseSelectorProps {
 }
 
 const baseOptions: BaseOption[] = [
-  { id: "collar-sirena", name: "Collar Sirena", price: 10, type: "collar" },
-  { id: "pulsera-cadena-dorada", name: "Pulsera de Cadena Dorada", price: 35, type: "pulsera" },
-  { id: "collar-cadena-plata", name: "Collar de Cadena Plata", price: 32, type: "collar" },
-  { id: "pulsera-cadena-plata", name: "Pulsera de Cadena Plata", price: 32, type: "pulsera" },
-  { id: "collar-oro-rosa", name: "Collar de Oro Rosa", price: 38, type: "collar" },
+  { id: "collar-sirena", name: "Collar Sirena", price: 12, type: "collar", image: "/collar-sirena.jpg" },
+  { id: "collar-paperclip-mini", name: "Collar Paper Clip (mini)", price: 10, type: "collar", image: "/collar-paperclip-mini.jpg" },
+  { id: "collar-paperclip", name: "Collar Paper Clip", price: 10, type: "collar", image: "/collar-paperclip.jpg" },
+  { id: "collar-chunky", name: "Collar Chunky", price: 12, type: "collar", image: "/collar-chunky.jpg" },
+  { id: "collar-balines", name: "Collar Balines", price: 8, type: "collar", image: "/collar-balines.jpg" },
 ];
 
 export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) => {
@@ -42,8 +43,19 @@ export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) 
             onClick={() => onSelectBase(option.id)}
             data-testid={`card-base-${option.id}`}
           >
-            <div className="aspect-square bg-muted rounded-lg mb-2 flex items-center justify-center">
-              <div className="text-2xl">
+            <div className="aspect-square bg-muted rounded-lg mb-2 overflow-hidden">
+              <img 
+                src={option.image} 
+                alt={option.name}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
+                onError={(e) => {
+                  // Si la imagen no existe, muestra un placeholder
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.nextElementSibling!.classList.remove('hidden');
+                }}
+              />
+              <div className="hidden w-full h-full flex items-center justify-center text-2xl">
                 {option.type === "collar" ? "🔗" : "⛓️"}
               </div>
             </div>
