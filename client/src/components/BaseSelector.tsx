@@ -14,11 +14,11 @@ interface BaseSelectorProps {
 }
 
 const baseOptions: BaseOption[] = [
-  { id: "collar-sirena", name: "Collar Sirena", price: 12, type: "collar", image: "/collar-sirena.jpg" },
-  { id: "collar-paperclip-mini", name: "Collar Paper Clip (mini)", price: 10, type: "collar", image: "/collar-paperclip-mini.jpg" },
-  { id: "collar-paperclip", name: "Collar Paper Clip", price: 10, type: "collar", image: "/collar-paperclip.jpg" },
-  { id: "collar-chunky", name: "Collar Chunky", price: 12, type: "collar", image: "/collar-chunky.jpg" },
-  { id: "collar-balines", name: "Collar Balines", price: 8, type: "collar", image: "/collar-balines.jpg" },
+  { id: "collar-sirena", name: "Collar Sirena", price: 12, type: "collar", image: "/collar-sirena.png" },
+  { id: "collar-paperclip-mini", name: "Collar Paper Clip (mini)", price: 10, type: "collar", image: "/collar-paperclip-mini.png" },
+  { id: "collar-paperclip", name: "Collar Paper Clip", price: 10, type: "collar", image: "/collar-paperclip.png" },
+  { id: "collar-chunky", name: "Collar Chunky", price: 12, type: "collar", image: "/collar-chunky.png" },
+  { id: "collar-balines", name: "Collar Balines", price: 8, type: "collar", image: "/collar-balines.png" },
 ];
 
 export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) => {
