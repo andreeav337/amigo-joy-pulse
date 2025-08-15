@@ -85,7 +85,7 @@ const Index = () => {
                 <img 
                   src="/logo-olan.png" 
                   alt="Olan Joyería" 
-                  className="h-16 mx-auto hover:scale-105 transition-transform cursor-pointer"
+                  className="h-14 mx-auto hover:scale-105 transition-transform cursor-pointer"
                 />
               </Link>
               
