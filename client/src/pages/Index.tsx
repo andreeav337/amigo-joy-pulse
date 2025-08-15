@@ -81,15 +81,34 @@ const Index = () => {
           <div className="text-center">
             {/* Aquí puedes cambiar tu logo - reemplaza el texto por una imagen */}
             <div className="mb-4">
-              <div className="inline-flex items-center gap-3 text-2xl font-bold text-primary">
-                <span>✨</span>
-                <Link href="/admin-login">
-                  <span className="hover:text-primary/80 transition-colors">COLOR JOYERÍA</span>
-                </Link>
-                <span>✨</span>
-              </div>
-              {/* Para usar tu logo como imagen, reemplaza lo de arriba por esto:
-              <img src="/tu-logo.png" alt="Color Joyería" className="h-16 mx-auto" />
+              <Link href="/admin-login">
+                <img 
+                  src="/logo-olan.png" 
+                  alt="Olan Joyería" 
+                  className="h-16 mx-auto hover:scale-105 transition-transform cursor-pointer"
+                />
+              </Link>
+              
+              {/* OPCIONES DE TAMAÑO - Cambia h-16 por cualquiera de estos:
+              
+              TAMAÑOS PEQUEÑOS:
+              h-8   = 32px de alto (muy pequeño)
+              h-10  = 40px de alto (pequeño)
+              h-12  = 48px de alto (mediano-pequeño)
+              
+              TAMAÑOS MEDIANOS:
+              h-14  = 56px de alto (mediano)
+              h-16  = 64px de alto (actual - recomendado)
+              h-18  = 72px de alto (mediano-grande)
+              
+              TAMAÑOS GRANDES:
+              h-20  = 80px de alto (grande)
+              h-24  = 96px de alto (muy grande)
+              h-28  = 112px de alto (extra grande)
+              h-32  = 128px de alto (súper grande)
+              
+              EJEMPLO: Para logo más grande cambiar:
+              className="h-24 mx-auto hover:scale-105 transition-transform cursor-pointer"
               */}
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
