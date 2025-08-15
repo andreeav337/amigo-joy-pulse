@@ -26,6 +26,11 @@ A custom jewelry design application where users can create personalized bracelet
 - **2025-01-15**: Replaced React Router with Wouter for routing
 - **2025-01-15**: Updated styling to use Tailwind theme variables
 - **2025-01-15**: Fixed package dependencies and server configuration
+- **2025-01-15**: Updated UI layout with 5 chain options in grid format
+- **2025-01-15**: Added logo section in header with customization instructions
+- **2025-01-15**: Implemented total calculation section between charms and order
+- **2025-01-15**: Reduced icon sizes and improved mobile responsiveness
+- **2025-01-15**: Created user-friendly modification guide (INSTRUCCIONES_PARA_MODIFICAR.md)
 
 ## User Preferences
 - Spanish language interface for jewelry app

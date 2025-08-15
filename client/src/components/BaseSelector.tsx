@@ -17,6 +17,7 @@ const baseOptions: BaseOption[] = [
   { id: "pulsera-cadena-dorada", name: "Pulsera de Cadena Dorada", price: 35, type: "pulsera" },
   { id: "collar-cadena-plata", name: "Collar de Cadena Plata", price: 32, type: "collar" },
   { id: "pulsera-cadena-plata", name: "Pulsera de Cadena Plata", price: 32, type: "pulsera" },
+  { id: "collar-oro-rosa", name: "Collar de Oro Rosa", price: 38, type: "collar" },
 ];
 
 export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) => {
@@ -26,30 +27,31 @@ export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) 
         <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold">
           1
         </div>
-        <h2 className="text-xl font-semibold text-foreground">Elige tu pieza base</h2>
+        <h2 className="text-xl font-semibold text-foreground">Elige tu tipo de cadena</h2>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {baseOptions.map((option) => (
           <Card
             key={option.id}
-            className={`p-4 cursor-pointer transition-all hover:shadow-md ${
+            className={`p-3 cursor-pointer transition-all hover:shadow-md ${
               selectedBase === option.id
                 ? 'ring-2 ring-primary bg-primary/5'
                 : 'hover:bg-accent/50'
             }`}
             onClick={() => onSelectBase(option.id)}
+            data-testid={`card-base-${option.id}`}
           >
-            <div className="aspect-square bg-muted rounded-lg mb-3 flex items-center justify-center">
-              <div className="text-4xl">
+            <div className="aspect-square bg-muted rounded-lg mb-2 flex items-center justify-center">
+              <div className="text-2xl">
                 {option.type === "collar" ? "🔗" : "⛓️"}
               </div>
             </div>
-            <h3 className="font-medium text-card-foreground mb-1">{option.name}</h3>
-            <p className="text-sm text-muted-foreground">${option.price}.00</p>
+            <h3 className="font-medium text-card-foreground mb-1 text-sm">{option.name}</h3>
+            <p className="text-xs text-muted-foreground">${option.price}.00</p>
             {selectedBase === option.id && (
-              <div className="mt-2 px-3 py-1 bg-primary text-primary-foreground text-xs rounded-full w-fit">
-                Seleccionado
+              <div className="mt-2 px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full w-fit">
+                ✓
               </div>
             )}
           </Card>
