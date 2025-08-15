@@ -18,13 +18,8 @@ interface CharmCategoriesProps {
 }
 
 const charmData: Charm[] = [
-  // Iniciales
-  { id: "letra-a", name: "Letra A", price: 8, emoji: "🅰️", category: "iniciales" },
-  { id: "letra-b", name: "Letra B", price: 8, emoji: "🅱️", category: "iniciales" },
-  { id: "letra-c", name: "Letra C", price: 8, emoji: "©️", category: "iniciales" },
-  { id: "letra-d", name: "Letra D", price: 8, emoji: "🌛", category: "iniciales" },
-  { id: "letra-e", name: "Letra E", price: 8, emoji: "📧", category: "iniciales" },
-  { id: "letra-f", name: "Letra F", price: 8, emoji: "🎏", category: "iniciales" },
+  // Iniciales (solo modelo - la inicial específica se indica en el paso 3)
+  { id: "letra-modelo", name: "Letra (Modelo)", price: 8, emoji: "🔤", category: "iniciales" },
   
   // Charms de Colores
   { id: "corazon-rojo", name: "Corazón Rojo", price: 12, emoji: "❤️", category: "colores" },
@@ -52,7 +47,7 @@ const charmData: Charm[] = [
 ];
 
 const categoryNames = {
-  iniciales: "Iniciales",
+  iniciales: "Iniciales (especifica la letra en el paso 3)",
   colores: "Charms de Colores",
   dorados: "Charms Dorados",
   animales: "Animales"
@@ -108,26 +103,14 @@ export const CharmCategories = ({ selectedCharms, onCharmChange }: CharmCategori
                         <h4 className="text-sm font-medium mb-1">{charm.name}</h4>
                         <p className="text-xs text-muted-foreground mb-3">${charm.price}.00</p>
                         
-                        <div className="flex items-center justify-center gap-2">
-                          <Button
-                            variant="outline"
-                            size="icon"
-                            className="h-8 w-8"
-                            onClick={() => updateCharmQuantity(charm.id, -1)}
-                            disabled={quantity === 0}
-                          >
-                            <Minus className="h-3 w-3" />
-                          </Button>
-                          <span className="w-8 text-center font-semibold">{quantity}</span>
-                          <Button
-                            variant="outline"
-                            size="icon"
-                            className="h-8 w-8"
-                            onClick={() => updateCharmQuantity(charm.id, 1)}
-                          >
-                            <Plus className="h-3 w-3" />
-                          </Button>
-                        </div>
+                        <Button
+                          onClick={() => onCharmChange(charm.id, quantity > 0 ? 0 : 1)}
+                          variant={quantity > 0 ? "default" : "outline"}
+                          className="w-full text-xs"
+                          data-testid={`button-charm-${charm.id}`}
+                        >
+                          {quantity > 0 ? "Seleccionado ✓" : "Seleccionar"}
+                        </Button>
                       </Card>
                     );
                   })}
@@ -140,7 +123,7 @@ export const CharmCategories = ({ selectedCharms, onCharmChange }: CharmCategori
 
       <div className="bg-muted p-4 rounded-lg">
         <p className="text-sm text-muted-foreground">
-          Seleccionados: <span className="font-semibold text-foreground">{totalSelected} dijes</span>
+          Seleccionados: <span className="font-semibold text-foreground">{totalSelected} {totalSelected === 1 ? 'dije' : 'dijes'}</span>
         </p>
       </div>
     </div>
