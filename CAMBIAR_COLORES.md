@@ -1,111 +1,103 @@
-# 🎨 CÓMO CAMBIAR COLORES DE FONDO
+# 🎨 CÓMO CAMBIAR COLORES DE LA APP
 
-## 📁 **ARCHIVO PRINCIPAL:** `client/src/index.css`
+## 📍 Archivo principal: `client/src/index.css`
 
-## 🌈 **COLORES PRINCIPALES QUE PUEDES CAMBIAR:**
+### 🎯 COLORES ACTUALES:
 
-### **1. FONDO PRINCIPAL DE LA PÁGINA**
 ```css
---background: 0 0% 100%;        /* Blanco actual */
-```
-
-**Ejemplos para cambiar:**
-```css
---background: 220 15% 97%;      /* Gris muy claro */
---background: 45 100% 98%;      /* Amarillo muy suave */
---background: 200 50% 95%;      /* Azul muy claro */
---background: 0 0% 8%;          /* Negro (modo oscuro) */
-```
-
-### **2. COLOR DE LAS TARJETAS Y CARDS**
-```css
---card: 0 0% 100%;              /* Blanco actual */
-```
-
-**Ejemplos:**
-```css
---card: 210 20% 98%;            /* Gris-azul claro */
---card: 45 30% 97%;             /* Beige claro */
-```
-
-### **3. COLOR PRINCIPAL (botones, enlaces)**
-```css
---primary: 142 69% 58%;         /* Verde actual */
-```
-
-**Ejemplos:**
-```css
---primary: 346 77% 49%;         /* Rosa/fucsia */
---primary: 217 91% 60%;         /* Azul */
---primary: 32 95% 44%;          /* Naranja */
---primary: 271 91% 65%;         /* Morado */
-```
-
-### **4. BORDES Y SEPARADORES**
-```css
---border: 214 32% 91%;          /* Gris claro */
+:root {
+  --primary: 20 14.3% 4.1%;           /* Negro principal */
+  --primary-foreground: 60 9.1% 97.8%; /* Blanco sobre negro */
+  --secondary: 60 4.8% 95.9%;         /* Gris claro */
+  --muted: 60 4.8% 95.9%;             /* Gris muy suave */
+  --accent: 60 4.8% 95.9%;            /* Color de acento */
+  --background: 0 0% 100%;            /* Blanco de fondo */
+  --foreground: 20 14.3% 4.1%;       /* Negro del texto */
+  --border: 20 5.9% 90%;              /* Bordes */
+}
 ```
 
 ---
 
-## 🎯 **EJEMPLOS COMPLETOS DE TEMAS:**
+## 🌈 OPCIONES RECOMENDADAS:
 
-### **TEMA ROSA ELEGANTE:**
+### 💎 **ELEGANTE DORADO** (Para joyería):
 ```css
---background: 330 100% 98%;     /* Rosa muy claro */
---card: 330 50% 96%;            /* Tarjetas rosa suave */
---primary: 346 77% 49%;         /* Botones rosa fuerte */
---border: 330 30% 85%;          /* Bordes rosa */
+:root {
+  --primary: 45 100% 51%;             /* Dorado principal */
+  --primary-foreground: 0 0% 100%;    /* Blanco sobre dorado */
+  --secondary: 45 20% 95%;            /* Crema claro */
+  --muted: 45 15% 92%;                /* Beige suave */
+  --accent: 45 60% 70%;               /* Dorado claro */
+  --background: 0 0% 100%;            /* Blanco */
+  --foreground: 45 25% 15%;           /* Marrón oscuro */
+}
 ```
 
-### **TEMA AZUL PROFESIONAL:**
+### 🌸 **ROSA ELEGANTE**:
 ```css
---background: 210 40% 98%;      /* Azul muy claro */
---card: 210 30% 96%;            /* Tarjetas azul suave */
---primary: 217 91% 60%;         /* Botones azul */
---border: 210 25% 88%;          /* Bordes azul */
+:root {
+  --primary: 340 82% 52%;             /* Rosa principal */
+  --primary-foreground: 0 0% 100%;    /* Blanco */
+  --secondary: 340 20% 95%;           /* Rosa muy claro */
+  --muted: 340 15% 92%;               /* Rosa pastel */
+  --accent: 340 60% 70%;              /* Rosa medio */
+  --background: 0 0% 100%;            /* Blanco */
+  --foreground: 340 25% 15%;          /* Rosa muy oscuro */
+}
 ```
 
-### **TEMA DORADO ELEGANTE:**
+### 🖤 **NEGRO MINIMALISTA**:
 ```css
---background: 45 60% 98%;       /* Amarillo muy claro */
---card: 45 40% 96%;             /* Tarjetas crema */
---primary: 32 95% 44%;          /* Botones dorado */
---border: 45 30% 85%;           /* Bordes dorados */
+:root {
+  --primary: 0 0% 9%;                 /* Negro */
+  --primary-foreground: 0 0% 98%;     /* Blanco */
+  --secondary: 0 0% 96%;              /* Gris muy claro */
+  --muted: 0 0% 90%;                  /* Gris claro */
+  --accent: 0 0% 15%;                 /* Gris oscuro */
+  --background: 0 0% 100%;            /* Blanco */
+  --foreground: 0 0% 15%;             /* Gris muy oscuro */
+}
+```
+
+### 💜 **MORADO SOFISTICADO**:
+```css
+:root {
+  --primary: 262 83% 58%;             /* Morado principal */
+  --primary-foreground: 0 0% 100%;    /* Blanco */
+  --secondary: 262 20% 95%;           /* Lila muy claro */
+  --muted: 262 15% 92%;               /* Lila pastel */
+  --accent: 262 60% 70%;              /* Morado claro */
+  --background: 0 0% 100%;            /* Blanco */
+  --foreground: 262 25% 15%;          /* Morado muy oscuro */
+}
 ```
 
 ---
 
-## 📝 **CÓMO APLICAR LOS CAMBIOS:**
+## 🔧 CÓMO CAMBIAR:
 
-1. **Abre:** `client/src/index.css`
-2. **Busca la sección:** `:root {`
-3. **Cambia los valores** que quieras
-4. **Guarda el archivo**
-5. **Los cambios se ven inmediatamente**
+1. Abre `client/src/index.css`
+2. Ve a la línea 75-85 (sección `:root`)
+3. Reemplaza los valores por los de tu color preferido
+4. Guarda el archivo
+5. ¡Los cambios se aplican automáticamente!
 
----
+## 🎨 CREAR TU PROPIO COLOR:
 
-## 🔧 **HERRAMIENTAS ÚTILES:**
+### Para usar tu color favorito:
+1. Ve a https://uicolors.app/create
+2. Elige tu color principal
+3. Copia los valores HSL
+4. Reemplaza en el código
 
-### **Convertir color normal a HSL:**
-- **Rojo** = `0 100% 50%`
-- **Verde** = `120 100% 50%`
-- **Azul** = `240 100% 50%`
-- **Rosa** = `330 100% 50%`
-- **Morado** = `270 100% 50%`
+### Ejemplo con azul:
+```css
+:root {
+  --primary: 217 91% 60%;             /* Tu azul favorito */
+  --primary-foreground: 0 0% 100%;    /* Blanco */
+  /* ... resto igual */
+}
+```
 
-### **Para colores más suaves:**
-- Cambiar el último número a `95%` o `98%` para fondos
-- Cambiar el segundo número a `20%` o `30%` para menos saturación
-
----
-
-## ⚡ **CAMBIO RÁPIDO:**
-¿Qué color te gusta? Te puedo cambiar todo automáticamente:
-- Rosa
-- Azul 
-- Morado
-- Dorado
-- Verde oscuro
-- Otro color específico
+¿Qué color te gustaría usar para tu joyería?

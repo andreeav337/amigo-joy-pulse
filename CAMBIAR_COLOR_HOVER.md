@@ -1,62 +1,80 @@
-# 🎨 CAMBIAR COLOR DE HOVER (cuando pasas el cursor)
+# 🎨 CAMBIAR COLORES DE EFECTOS HOVER
 
-## 📁 **UBICACIÓN:** `client/src/index.css` - Línea 25
+## 🎯 DÓNDE ESTÁN LOS HOVER EFFECTS:
 
-## 🔧 **LÍNEA A CAMBIAR:**
-```css
---primary: 280 80% 60%;     /* Color actual: morado */
+### 📱 Para CHARMS (`client/src/components/CharmCategories.tsx`)
+**Línea 115:**
+```javascript
+'hover:scale-110 hover:shadow-lg cursor-pointer'
 ```
 
-## 🌈 **OPCIONES DE COLORES:**
-
-### **MORADOS (como tu logo):**
-```css
---primary: 280 80% 60%;     /* Morado medio (ACTUAL) */
---primary: 260 90% 70%;     /* Morado claro */
---primary: 290 70% 50%;     /* Morado oscuro */
+### 📿 Para CADENAS (`client/src/components/BaseSelector.tsx`)
+**Línea 37:**
+```javascript
+'cursor-pointer hover:bg-gray-50 hover:shadow-md'
 ```
 
-### **ROSAS:**
-```css
---primary: 330 80% 60%;     /* Rosa medio */
---primary: 350 70% 65%;     /* Rosa suave */
---primary: 320 90% 70%;     /* Rosa brillante */
+---
+
+## 🌈 OPCIONES DE COLORES HOVER:
+
+### ✨ **DORADO SUAVE**:
+```javascript
+// Para charms:
+'hover:scale-110 hover:shadow-lg hover:bg-yellow-50 hover:border-yellow-200 cursor-pointer'
+
+// Para cadenas:
+'cursor-pointer hover:bg-yellow-50 hover:shadow-md hover:border-yellow-200'
 ```
 
-### **AZULES:**
-```css
---primary: 220 80% 60%;     /* Azul medio */
---primary: 200 90% 70%;     /* Azul claro */
---primary: 240 70% 50%;     /* Azul oscuro */
+### 🌸 **ROSA SUAVE**:
+```javascript
+// Para charms:
+'hover:scale-110 hover:shadow-lg hover:bg-pink-50 hover:border-pink-200 cursor-pointer'
+
+// Para cadenas:
+'cursor-pointer hover:bg-pink-50 hover:shadow-md hover:border-pink-200'
 ```
 
-### **OTROS COLORES:**
-```css
---primary: 160 80% 60%;     /* Verde */
---primary: 45 85% 45%;      /* Dorado (original) */
---primary: 0 80% 60%;       /* Rojo */
---primary: 30 90% 65%;      /* Naranja */
+### 💜 **MORADO SUAVE**:
+```javascript
+// Para charms:
+'hover:scale-110 hover:shadow-lg hover:bg-purple-50 hover:border-purple-200 cursor-pointer'
+
+// Para cadenas:
+'cursor-pointer hover:bg-purple-50 hover:shadow-md hover:border-purple-200'
 ```
 
-## 🎯 **EXPLICACIÓN DE LOS NÚMEROS:**
-```css
---primary: 280 80% 60%;
-           ↑   ↑   ↑
-        Color Saturación Brillo
+### 🔥 **EFECTO BRILLANTE**:
+```javascript
+// Para charms:
+'hover:scale-110 hover:shadow-xl hover:brightness-110 cursor-pointer'
+
+// Para cadenas:
+'cursor-pointer hover:brightness-105 hover:shadow-lg'
 ```
-- **Primer número (280):** Tipo de color (0-360)
-- **Segundo número (80%):** Qué tan intenso (0-100%)  
-- **Tercer número (60%):** Qué tan claro u oscuro (0-100%)
 
-## ⚡ **CAMBIO RÁPIDO:**
-¿Qué color prefieres?
-- **Morado claro:** `260 90% 70%`
-- **Rosa suave:** `350 70% 65%`
-- **Azul elegante:** `220 80% 60%`
-- **Sin color (gris):** `0 0% 70%`
+---
 
-## 🔍 **DÓNDE SE USA ESTE COLOR:**
-- Borde al seleccionar cadenas
-- Botones principales
-- Enlaces y elementos interactivos
-- Checkmarks y confirmaciones
+## 🔧 CÓMO CAMBIAR:
+
+### Para cambiar color de hover en CHARMS:
+1. Abre `client/src/components/CharmCategories.tsx`
+2. Ve a la línea 115
+3. Cambia la clase hover por tu preferida
+
+### Para cambiar color de hover en CADENAS:
+1. Abre `client/src/components/BaseSelector.tsx`
+2. Ve a la línea 37
+3. Cambia la clase hover por tu preferida
+
+## 💡 COMBINAR CON TU COLOR PRINCIPAL:
+
+Si cambias el color principal de la app, usa hover que combine:
+
+- **App dorada** → `hover:bg-yellow-50`
+- **App rosa** → `hover:bg-pink-50`
+- **App morada** → `hover:bg-purple-50`
+- **App azul** → `hover:bg-blue-50`
+
+¿Qué efecto hover prefieres?

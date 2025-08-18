@@ -25,7 +25,7 @@ export const BaseSelector = ({ selectedBase, onSelectBase, baseOptions }: BaseSe
         <h2 className="text-xl font-semibold text-foreground">Escoge tu modelo de cadena</h2>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {baseOptions.map((option) => (
           <Card
             key={option.id}
