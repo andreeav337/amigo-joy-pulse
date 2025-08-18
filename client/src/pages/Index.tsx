@@ -11,20 +11,48 @@ const Index = () => {
   const [selectedCharms, setSelectedCharms] = useState<{ [key: string]: number }>({});
   const [orderText, setOrderText] = useState("");
 
-  // Datos de precios para calcular el total
+  // 📦 INVENTARIO DE CADENAS (Modifica las cantidades aquí)
   const baseOptions = [
-    { id: "collar-sirena", name: "Collar Sirena", price: 12 },
-    { id: "collar-paperclip-mini", name: "Collar Paper Clip (mini)", price: 10 },
-    { id: "collar-paperclip", name: "Collar Paper Clip", price: 10 },
-    { id: "collar-chunky", name: "Collar Chunky", price: 12 },
-    { id: "collar-balines", name: "Collar Balines", price: 8 },
+    { id: "collar-sirena", name: "Collar Sirena", price: 12, stock: 5 },
+    { id: "collar-paperclip-mini", name: "Collar Paper Clip (mini)", price: 10, stock: 3 },
+    { id: "collar-paperclip", name: "Collar Paper Clip", price: 10, stock: 2 },
+    { id: "collar-chunky", name: "Collar Chunky", price: 12, stock: 1 },
+    { id: "collar-balines", name: "Collar Balines", price: 8, stock: 4 },
   ];
 
-  const charmPrices: { [key: string]: number } = {
-    "letra-a": 8, "letra-b": 8, "letra-c": 8, "letra-d": 8, "letra-e": 8, "letra-f": 8,
-    "corazon-rojo": 12, "estrella-azul": 10, "luna-morada": 11, "sol-amarillo": 10, "mariposa-rosa": 13, "flor-verde": 9,
-    "corona-dorada": 18, "llave-dorada": 15, "estrella-dorada": 16, "corazon-dorado": 17, "herradura-dorada": 14, "sol-dorado": 19,
-    "gato": 12, "perro": 12, "mariposa": 11, "pez": 10, "pajaro": 11, "unicornio": 15
+  // 📦 INVENTARIO DE CHARMS (Modifica las cantidades y precios aquí)
+  const charmInventory: { [key: string]: { price: number; stock: number } } = {
+    // 🔤 Letras
+    "letra-a": { price: 8, stock: 10 },
+    "letra-b": { price: 8, stock: 8 },
+    "letra-c": { price: 8, stock: 12 },
+    "letra-d": { price: 8, stock: 5 },
+    "letra-e": { price: 8, stock: 7 },
+    "letra-f": { price: 8, stock: 9 },
+    
+    // 🌈 Charms de colores
+    "corazon-rojo": { price: 12, stock: 6 },
+    "estrella-azul": { price: 10, stock: 4 },
+    "luna-morada": { price: 11, stock: 3 },
+    "sol-amarillo": { price: 10, stock: 8 },
+    "mariposa-rosa": { price: 13, stock: 2 },
+    "flor-verde": { price: 9, stock: 5 },
+    
+    // ⭐ Charms dorados
+    "corona-dorada": { price: 18, stock: 2 },
+    "llave-dorada": { price: 15, stock: 1 },
+    "estrella-dorada": { price: 16, stock: 3 },
+    "corazon-dorado": { price: 17, stock: 4 },
+    "herradura-dorada": { price: 14, stock: 1 },
+    "sol-dorado": { price: 19, stock: 2 },
+    
+    // 🐾 Animales
+    "gato": { price: 12, stock: 7 },
+    "perro": { price: 12, stock: 5 },
+    "mariposa": { price: 11, stock: 6 },
+    "pez": { price: 10, stock: 4 },
+    "pajaro": { price: 11, stock: 3 },
+    "unicornio": { price: 15, stock: 1 }
   };
 
   // Calcular total
@@ -39,7 +67,7 @@ const Index = () => {
     
     // Precio de los charms
     Object.entries(selectedCharms).forEach(([charmId, quantity]) => {
-      const charmPrice = charmPrices[charmId] || 0;
+      const charmPrice = charmInventory[charmId]?.price || 0;
       total += charmPrice * quantity;
     });
     
@@ -60,7 +88,9 @@ const Index = () => {
       baseName: baseOptions.find(b => b.id === selectedBase)?.name,
       basePrice: baseOptions.find(b => b.id === selectedBase)?.price,
       charms: selectedCharms,
-      charmPrices: charmPrices,
+      charmPrices: Object.fromEntries(
+        Object.entries(charmInventory).map(([id, data]) => [id, data.price])
+      ),
       totalCharms: Object.values(selectedCharms).reduce((sum, qty) => sum + qty, 0),
       orderText: orderText,
       total: calculateTotal()
@@ -128,12 +158,18 @@ const Index = () => {
           <BaseSelector 
             selectedBase={selectedBase}
             onSelectBase={setSelectedBase}
+            baseOptions={baseOptions.map(base => ({
+              ...base,
+              type: "collar" as const,
+              image: `/collar-${base.id.split('-').slice(1).join('-')}.png`
+            }))}
           />
 
           {/* Step 2: Charm Categories */}
           <CharmCategories 
             selectedCharms={selectedCharms}
             onCharmChange={handleCharmChange}
+            charmInventory={charmInventory}
           />
 
           {/* Total Section */}

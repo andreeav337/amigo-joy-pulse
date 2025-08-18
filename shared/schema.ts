@@ -8,6 +8,19 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
 });
 
+// Tabla para inventario de cadenas/bases
+export const inventory = pgTable("inventory", {
+  id: serial("id").primaryKey(),
+  itemId: text("item_id").notNull().unique(), // "collar-sirena", "letra-a", etc.
+  itemName: text("item_name").notNull(),
+  itemType: text("item_type").notNull(), // "base" o "charm"
+  currentStock: integer("current_stock").notNull().default(0),
+  maxStock: integer("max_stock").notNull().default(0),
+  price: decimal("price", { precision: 10, scale: 2 }).notNull(),
+  isActive: boolean("is_active").notNull().default(true),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
 // Tabla para almacenar pedidos de joyería
 export const orders = pgTable("orders", {
   id: serial("id").primaryKey(),

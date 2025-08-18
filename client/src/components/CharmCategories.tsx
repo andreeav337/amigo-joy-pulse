@@ -15,6 +15,7 @@ interface Charm {
 interface CharmCategoriesProps {
   selectedCharms: { [charmId: string]: number };
   onCharmChange: (charmId: string, quantity: number) => void;
+  charmInventory: { [key: string]: { price: number; stock: number } };
 }
 
 const charmData: Charm[] = [
@@ -56,13 +57,14 @@ const categoryNames = {
   animales: "Animales"
 };
 
-export const CharmCategories = ({ selectedCharms, onCharmChange }: CharmCategoriesProps) => {
+export const CharmCategories = ({ selectedCharms, onCharmChange, charmInventory }: CharmCategoriesProps) => {
   const categories = Object.keys(categoryNames) as Array<keyof typeof categoryNames>;
   const totalSelected = Object.values(selectedCharms).reduce((sum, qty) => sum + qty, 0);
 
   const updateCharmQuantity = (charmId: string, change: number) => {
     const current = selectedCharms[charmId] || 0;
-    const newQuantity = Math.max(0, current + change);
+    const maxStock = charmInventory[charmId]?.stock || 0;
+    const newQuantity = Math.max(0, Math.min(maxStock, current + change));
     onCharmChange(charmId, newQuantity);
   };
 
@@ -100,20 +102,88 @@ export const CharmCategories = ({ selectedCharms, onCharmChange }: CharmCategori
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-4">
                   {categoryCharms.map((charm) => {
                     const quantity = selectedCharms[charm.id] || 0;
+                    const inventoryData = charmInventory[charm.id];
+                    const isOutOfStock = !inventoryData || inventoryData.stock === 0;
+                    const currentPrice = inventoryData?.price || charm.price;
+                    const availableStock = inventoryData?.stock || 0;
+                    
                     return (
-                      <Card key={charm.id} className="p-3 text-center">
+                      <Card key={charm.id} className={`p-3 text-center ${
+                        isOutOfStock ? 'opacity-50 bg-gray-50' : ''
+                      }`}>
                         <div className="text-2xl mb-2">{charm.emoji}</div>
-                        <h4 className="text-sm font-medium mb-1">{charm.name}</h4>
-                        <p className="text-xs text-muted-foreground mb-3">${charm.price}.00</p>
+                        <h4 className={`text-sm font-medium mb-1 ${
+                          isOutOfStock ? 'text-gray-400' : ''
+                        }`}>
+                          {charm.name}
+                        </h4>
+                        <p className={`text-xs mb-1 ${
+                          isOutOfStock ? 'text-gray-400' : 'text-muted-foreground'
+                        }`}>
+                          ${currentPrice}.00
+                        </p>
                         
-                        <Button
-                          onClick={() => onCharmChange(charm.id, quantity > 0 ? 0 : 1)}
-                          variant={quantity > 0 ? "default" : "outline"}
-                          className="w-full text-xs"
-                          data-testid={`button-charm-${charm.id}`}
-                        >
-                          {quantity > 0 ? "Seleccionado ✓" : "Seleccionar"}
-                        </Button>
+                        {isOutOfStock ? (
+                          <>
+                            <p className="text-xs text-red-500 mb-2">Agotado</p>
+                            <Button
+                              disabled
+                              variant="outline"
+                              className="w-full text-xs opacity-50"
+                            >
+                              No disponible
+                            </Button>
+                          </>
+                        ) : (
+                          <>
+                            <p className="text-xs text-green-600 mb-2">
+                              Stock: {availableStock}
+                            </p>
+                            
+                            {quantity === 0 ? (
+                              <Button
+                                onClick={() => updateCharmQuantity(charm.id, 1)}
+                                variant="outline"
+                                className="w-full text-xs"
+                                data-testid={`button-charm-${charm.id}`}
+                              >
+                                Agregar
+                              </Button>
+                            ) : (
+                              <div className="space-y-2">
+                                <div className="flex items-center justify-center gap-2">
+                                  <Button
+                                    onClick={() => updateCharmQuantity(charm.id, -1)}
+                                    variant="outline"
+                                    size="sm"
+                                    className="w-8 h-8 p-0"
+                                  >
+                                    <Minus className="h-3 w-3" />
+                                  </Button>
+                                  <span className="font-semibold text-primary min-w-[20px]">
+                                    {quantity}
+                                  </span>
+                                  <Button
+                                    onClick={() => updateCharmQuantity(charm.id, 1)}
+                                    variant="outline"
+                                    size="sm"
+                                    className="w-8 h-8 p-0"
+                                    disabled={quantity >= availableStock}
+                                  >
+                                    <Plus className="h-3 w-3" />
+                                  </Button>
+                                </div>
+                                <Button
+                                  onClick={() => onCharmChange(charm.id, 0)}
+                                  variant="ghost"
+                                  className="w-full text-xs text-red-600 hover:text-red-700"
+                                >
+                                  Quitar
+                                </Button>
+                              </div>
+                            )}
+                          </>
+                        )}
                       </Card>
                     );
                   })}

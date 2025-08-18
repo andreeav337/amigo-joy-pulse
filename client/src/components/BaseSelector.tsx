@@ -4,6 +4,7 @@ interface BaseOption {
   id: string;
   name: string;
   price: number;
+  stock: number;
   type: "collar" | "pulsera";
   image: string;
 }
@@ -11,17 +12,10 @@ interface BaseOption {
 interface BaseSelectorProps {
   selectedBase: string | null;
   onSelectBase: (baseId: string) => void;
+  baseOptions: BaseOption[];
 }
 
-const baseOptions: BaseOption[] = [
-  { id: "collar-sirena", name: "Collar Sirena", price: 12, type: "collar", image: "/collar-sirena.png" },
-  { id: "collar-paperclip-mini", name: "Collar Paper Clip (mini)", price: 10, type: "collar", image: "/collar-paperclip-mini.png" },
-  { id: "collar-paperclip", name: "Collar Paper Clip", price: 10, type: "collar", image: "/collar-paperclip.png" },
-  { id: "collar-chunky", name: "Collar Chunky", price: 12, type: "collar", image: "/collar-chunky.png" },
-  { id: "collar-balines", name: "Collar Balines", price: 8, type: "collar", image: "/collar-balines.png" },
-];
-
-export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) => {
+export const BaseSelector = ({ selectedBase, onSelectBase, baseOptions }: BaseSelectorProps) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2 mb-6">
@@ -35,12 +29,14 @@ export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) 
         {baseOptions.map((option) => (
           <Card
             key={option.id}
-            className={`p-3 cursor-pointer transition-all hover:shadow-md ${
-              selectedBase === option.id
-                ? 'ring-2 ring-primary bg-primary/5'
-                : 'hover:bg-gray-50'
+            className={`p-3 transition-all ${
+              option.stock === 0 
+                ? 'opacity-50 cursor-not-allowed bg-gray-100' 
+                : selectedBase === option.id
+                  ? 'ring-2 ring-primary bg-primary/5 cursor-pointer hover:shadow-md'
+                  : 'cursor-pointer hover:bg-gray-50 hover:shadow-md'
             }`}
-            onClick={() => onSelectBase(option.id)}
+            onClick={() => option.stock > 0 && onSelectBase(option.id)}
             data-testid={`card-base-${option.id}`}
           >
             <div className="aspect-square bg-muted rounded-lg mb-2 overflow-hidden">
@@ -59,12 +55,32 @@ export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) 
                 {option.type === "collar" ? "" : ""}
               </div>
             </div>
-            <h3 className="font-medium text-card-foreground mb-1 text-sm">{option.name}</h3>
-            <p className="text-xs text-muted-foreground">${option.price}.00</p>
-            {selectedBase === option.id && (
-              <div className="mt-2 px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full w-fit">
-                ✓
+            <h3 className={`font-medium mb-1 text-sm ${
+              option.stock === 0 ? 'text-gray-400' : 'text-card-foreground'
+            }`}>
+              {option.name}
+            </h3>
+            <p className={`text-xs ${
+              option.stock === 0 ? 'text-gray-400' : 'text-muted-foreground'
+            }`}>
+              ${option.price}.00
+            </p>
+            
+            {option.stock === 0 ? (
+              <div className="mt-2 px-2 py-1 bg-red-100 text-red-600 text-xs rounded-full w-fit">
+                Agotado
               </div>
+            ) : (
+              <>
+                <div className="mt-1 text-xs text-green-600">
+                  Disponible: {option.stock}
+                </div>
+                {selectedBase === option.id && (
+                  <div className="mt-2 px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full w-fit">
+                    ✓
+                  </div>
+                )}
+              </>
             )}
           </Card>
         ))}
