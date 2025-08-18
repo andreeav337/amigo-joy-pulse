@@ -114,7 +114,15 @@ Para cambiar precios:
 - **Stock 0** = "Agotado" (aparece gris y no se puede seleccionar)
 - **Stock mayor a 0** = Disponible para compra
 - Los clientes no podrán agregar más cantidad de la que tienes en stock
+- Los clientes NO VEN las cantidades disponibles, solo tú las controlas
 - Siempre revisa que los precios estén correctos después de modificar
+
+## 🔒 PRIVACIDAD DEL INVENTARIO
+
+- Los clientes solo ven si está "Disponible" o "Agotado"
+- NO ven cuántas unidades tienes (ej: no ven "Disponible: 5")
+- Solo tú controlas las cantidades desde el código
+- Esto evita presión de compra y mantiene el inventario privado
 - El sistema previene automáticamente que vendan más de lo disponible
 - Puedes cambiar precios y stock en tiempo real sin reiniciar nada
 

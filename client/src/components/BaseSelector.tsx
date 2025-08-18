@@ -71,16 +71,11 @@ export const BaseSelector = ({ selectedBase, onSelectBase, baseOptions }: BaseSe
                 Agotado
               </div>
             ) : (
-              <>
-                <div className="mt-1 text-xs text-green-600">
-                  Disponible: {option.stock}
+              selectedBase === option.id && (
+                <div className="mt-2 px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full w-fit">
+                  ✓
                 </div>
-                {selectedBase === option.id && (
-                  <div className="mt-2 px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full w-fit">
-                    ✓
-                  </div>
-                )}
-              </>
+              )
             )}
           </Card>
         ))}

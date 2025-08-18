@@ -9,12 +9,15 @@ A custom jewelry design application where users can create personalized bracelet
 - **Styling**: Tailwind CSS with shadcn/ui components
 - **State Management**: React hooks with TanStack Query for data fetching
 - **Storage**: In-memory storage (MemStorage) for development
+- **Inventory System**: Built-in stock control with hidden quantities from customers
 
 ## Key Features
 1. **Base Selection**: Users choose between gold/silver chains for collars or bracelets
 2. **Charm Categories**: Multiple categories including letters, colored charms, gold charms, and animals
-3. **Order Specification**: Users can describe how they want their charms arranged
-4. **Responsive Design**: Mobile-first design with Tailwind CSS
+3. **Inventory Management**: Stock control system with hidden quantities from customers
+4. **Order Specification**: Users can describe how they want their charms arranged
+5. **Admin Access**: Secure admin login with hardcoded password for order management
+6. **Responsive Design**: Mobile-first design with Tailwind CSS
 
 ## Components
 - `BaseSelector`: Displays available chain options with pricing
@@ -31,6 +34,10 @@ A custom jewelry design application where users can create personalized bracelet
 - **2025-01-15**: Implemented total calculation section between charms and order
 - **2025-01-15**: Reduced icon sizes and improved mobile responsiveness
 - **2025-01-15**: Created user-friendly modification guide (INSTRUCCIONES_PARA_MODIFICAR.md)
+- **2025-01-18**: Implemented inventory system for chains and charms with stock control
+- **2025-01-18**: Admin login now has hardcoded password (colorjoyeria2024) defined in code
+- **2025-01-18**: Stock quantities are hidden from customers, only show "Available" or "Sold Out"
+- **2025-01-18**: Created GUIA_INVENTARIO.md for easy inventory management by user
 
 ## User Preferences
 - Spanish language interface for jewelry app

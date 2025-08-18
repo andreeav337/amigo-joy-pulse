@@ -136,9 +136,6 @@ export const CharmCategories = ({ selectedCharms, onCharmChange, charmInventory 
                           </>
                         ) : (
                           <>
-                            <p className="text-xs text-green-600 mb-2">
-                              Stock: {availableStock}
-                            </p>
                             
                             {quantity === 0 ? (
                               <Button
