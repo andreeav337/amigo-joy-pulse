@@ -61,6 +61,8 @@ export class MemStorage implements IStorage {
       shippingCity: insertOrder.shippingCity || null,
       charmsText: insertOrder.charmsText || null,
       orderInstructions: insertOrder.orderInstructions || null,
+      shippingCost: insertOrder.shippingCost || "0",
+      status: insertOrder.status || "pending",
       createdAt: now,
       updatedAt: now,
     };
