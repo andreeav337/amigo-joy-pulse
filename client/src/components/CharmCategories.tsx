@@ -25,17 +25,17 @@ const charmData: Charm[] = [
   { id: "letra-3", name: "Letra 3", price: 8, emoji: "©️", category: "iniciales" },
   { id: "letra-4", name: "Letra 4", price: 8, emoji: "🌛", category: "iniciales" },
   
-  // Charms de Colores
-  { id: "corazon-rojo", name: "Corazón Rojo", price: 12, emoji: "❤️", category: "colores" },
-  { id: "estrella-azul", name: "Estrella Azul", price: 10, emoji: "💙", category: "colores" },
-  { id: "luna-morada", name: "Luna Morada", price: 11, emoji: "💜", category: "colores" },
-  { id: "sol-amarillo", name: "Sol Amarillo", price: 10, emoji: "💛", category: "colores" },
-  { id: "mariposa-rosa", name: "Mariposa Rosa", price: 13, emoji: "🩷", category: "colores" },
-  { id: "flor-verde", name: "Flor Verde", price: 9, emoji: "💚", category: "colores" },
+  // Charms de goldfilled
+  { id: "corazon-rojo", name: "Corazón Rojo", price: 12, emoji: "❤️", category: "goldfilled" },
+  { id: "estrella-azul", name: "Estrella Azul", price: 10, emoji: "💙", category: "goldfilled" },
+  { id: "luna-morada", name: "Luna Morada", price: 11, emoji: "💜", category: "goldfilled" },
+  { id: "sol-amarillo", name: "Sol Amarillo", price: 10, emoji: "💛", category: "goldfilled" },
+  { id: "mariposa-rosa", name: "Mariposa Rosa", price: 13, emoji: "🩷", category: "goldfilled" },
+  { id: "flor-verde", name: "Flor Verde", price: 9, emoji: "💚", category: "goldfilled" },
   
-  // Charms Dorados
-  { id: "corona-dorada", name: "Corona Dorada", price: 18, emoji: "👑", category: "dorados" },
-  { id: "llave-dorada", name: "Llave Dorada", price: 15, emoji: "🗝️", category: "dorados" },
+  // Charms Acero
+  { id: "bota-dorada", name: "Bota Vaquera", price: 5, emoji: "👑", category: "acero" },
+  { id: "corazon-dorado", name: "Corazón dorado", price: 5, emoji: "/charms/corazon-dorado.png", category: "acero" },
   { id: "estrella-dorada", name: "Estrella Dorada", price: 16, emoji: "⭐", category: "dorados" },
   { id: "corazon-dorado", name: "Corazón Dorado", price: 17, emoji: "💛", category: "dorados" },
   { id: "herradura-dorada", name: "Herradura Dorada", price: 14, emoji: "🧲", category: "dorados" },
@@ -52,9 +52,9 @@ const charmData: Charm[] = [
 
 const categoryNames = {
   iniciales: "Iniciales",
-  colores: "Charms de Colores",
-  dorados: "Charms Dorados",
-  animales: "Animales"
+  goldfilled: "Goldfilled",
+  acero: "Acero",
+  otros: "Piedras / cuarzos / acrílico"
 };
 
 export const CharmCategories = ({ selectedCharms, onCharmChange, charmInventory }: CharmCategoriesProps) => {
@@ -108,15 +108,15 @@ export const CharmCategories = ({ selectedCharms, onCharmChange, charmInventory 
                     const availableStock = inventoryData?.stock || 0;
                     
                     return (
-                      <Card key={charm.id} className={`p-3 text-center ${
-                        isOutOfStock ? 'opacity-50 bg-gray-50' : ''
+                      <Card key={charm.id} className={`p-3 text-center transition-all duration-300 ease-in-out ${
+                        isOutOfStock ? 'opacity-50 bg-gray-50' : 'hover:scale-110 hover:shadow-lg cursor-pointer'
                       }`}>
-                        <div className="w-12 h-12 mb-2 mx-auto">
+                        <div className="w-12 h-12 mb-2 mx-auto group-hover:scale-125 transition-transform duration-300">
                           {charm.emoji.startsWith('/') ? (
                             <img 
                               src={charm.emoji} 
                               alt={charm.name}
-                              className="w-full h-full object-cover rounded-lg"
+                              className="w-full h-full object-cover rounded-lg hover:brightness-110 transition-all duration-300"
                               onError={(e) => {
                                 // Si la imagen no carga, muestra el emoji de respaldo
                                 const target = e.target as HTMLImageElement;
@@ -125,7 +125,7 @@ export const CharmCategories = ({ selectedCharms, onCharmChange, charmInventory 
                               }}
                             />
                           ) : (
-                            <div className="text-2xl flex items-center justify-center h-full">{charm.emoji}</div>
+                            <div className="text-2xl flex items-center justify-center h-full hover:scale-125 transition-transform duration-300">{charm.emoji}</div>
                           )}
                           {charm.emoji.startsWith('/') && (
                             <div className="hidden text-2xl flex items-center justify-center h-full">

@@ -41,6 +41,8 @@ A custom jewelry design application where users can create personalized bracelet
 - **2025-01-18**: Created comprehensive photo guides (GUIA_AGREGAR_FOTOS.md) for chains and charms
 - **2025-01-18**: Set up automatic image system for charms with emoji fallback
 - **2025-01-18**: Chain photos already configured and working in client/public/
+- **2025-01-18**: Added hover effects to charms for better visualization (scale + shadow effects)
+- **2025-01-18**: Created hover customization guide (OPCIONES_HOVER_RECOMENDADAS.md)
 
 ## User Preferences
 - Spanish language interface for jewelry app

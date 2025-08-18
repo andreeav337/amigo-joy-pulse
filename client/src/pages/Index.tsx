@@ -16,8 +16,8 @@ const Index = () => {
     { id: "collar-sirena", name: "Collar Sirena", price: 12, stock: 5 },
     { id: "collar-paperclip-mini", name: "Collar Paper Clip (mini)", price: 10, stock: 3 },
     { id: "collar-paperclip", name: "Collar Paper Clip", price: 10, stock: 2 },
-    { id: "collar-chunky", name: "Collar Chunky", price: 12, stock: 1 },
-    { id: "collar-balines", name: "Collar Balines", price: 8, stock: 4 },
+    { id: "collar-chunky", name: "Collar Chunky", price: 12, stock: 5 },
+    { id: "collar-balines", name: "Collar Balines", price: 8, stock: 3 },
   ];
 
   // 📦 INVENTARIO DE CHARMS (Modifica las cantidades y precios aquí)
@@ -42,7 +42,7 @@ const Index = () => {
     "corona-dorada": { price: 18, stock: 2 },
     "llave-dorada": { price: 15, stock: 1 },
     "estrella-dorada": { price: 16, stock: 3 },
-    "corazon-dorado": { price: 17, stock: 4 },
+    "corazon-dorado": { price: 5, stock: 4 },
     "herradura-dorada": { price: 14, stock: 1 },
     "sol-dorado": { price: 19, stock: 2 },
     
