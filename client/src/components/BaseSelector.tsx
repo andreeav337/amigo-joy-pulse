@@ -28,7 +28,7 @@ export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) 
         <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold">
           1
         </div>
-        <h2 className="text-xl font-semibold text-foreground">Elige tu tipo de cadena</h2>
+        <h2 className="text-xl font-semibold text-foreground">Escoge tu modelo de cadena</h2>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -56,7 +56,7 @@ export const BaseSelector = ({ selectedBase, onSelectBase }: BaseSelectorProps) 
                 }}
               />
               <div className="hidden w-full h-full flex items-center justify-center text-2xl">
-                {option.type === "collar" ? "🔗" : "⛓️"}
+                {option.type === "collar" ? "" : ""}
               </div>
             </div>
             <h3 className="font-medium text-card-foreground mb-1 text-sm">{option.name}</h3>

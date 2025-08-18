@@ -13,11 +13,11 @@ const Index = () => {
 
   // Datos de precios para calcular el total
   const baseOptions = [
-    { id: "collar-cadena-dorada", name: "Collar de Cadena Dorada", price: 35 },
-    { id: "pulsera-cadena-dorada", name: "Pulsera de Cadena Dorada", price: 35 },
-    { id: "collar-cadena-plata", name: "Collar de Cadena Plata", price: 32 },
-    { id: "pulsera-cadena-plata", name: "Pulsera de Cadena Plata", price: 32 },
-    { id: "collar-oro-rosa", name: "Collar de Oro Rosa", price: 38 },
+    { id: "collar-sirena", name: "Collar Sirena", price: 12 },
+    { id: "collar-paperclip-mini", name: "Collar Paper Clip (mini)", price: 10 },
+    { id: "collar-paperclip", name: "Collar Paper Clip", price: 10 },
+    { id: "collar-chunky", name: "Collar Chunky", price: 12 },
+    { id: "collar-balines", name: "Collar Balines", price: 8 },
   ];
 
   const charmPrices: { [key: string]: number } = {

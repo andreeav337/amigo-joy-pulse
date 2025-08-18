@@ -19,12 +19,10 @@ interface CharmCategoriesProps {
 
 const charmData: Charm[] = [
   // Iniciales
-  { id: "letra-a", name: "Letra A", price: 8, emoji: "🅰️", category: "iniciales" },
-  { id: "letra-b", name: "Letra B", price: 8, emoji: "🅱️", category: "iniciales" },
-  { id: "letra-c", name: "Letra C", price: 8, emoji: "©️", category: "iniciales" },
-  { id: "letra-d", name: "Letra D", price: 8, emoji: "🌛", category: "iniciales" },
-  { id: "letra-e", name: "Letra E", price: 8, emoji: "📧", category: "iniciales" },
-  { id: "letra-f", name: "Letra F", price: 8, emoji: "🎏", category: "iniciales" },
+  { id: "letra-1", name: "Letra 1", price: 8, emoji: "🅰️", category: "iniciales" },
+  { id: "letra-2", name: "Letra 2", price: 8, emoji: "🅱️", category: "iniciales" },
+  { id: "letra-3", name: "Letra 3", price: 8, emoji: "©️", category: "iniciales" },
+  { id: "letra-4", name: "Letra 4", price: 8, emoji: "🌛", category: "iniciales" },
   
   // Charms de Colores
   { id: "corazon-rojo", name: "Corazón Rojo", price: 12, emoji: "❤️", category: "colores" },
