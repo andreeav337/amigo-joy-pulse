@@ -38,6 +38,9 @@ A custom jewelry design application where users can create personalized bracelet
 - **2025-01-18**: Admin login now has hardcoded password (colorjoyeria2024) defined in code
 - **2025-01-18**: Stock quantities are hidden from customers, only show "Available" or "Sold Out"
 - **2025-01-18**: Created GUIA_INVENTARIO.md for easy inventory management by user
+- **2025-01-18**: Created comprehensive photo guides (GUIA_AGREGAR_FOTOS.md) for chains and charms
+- **2025-01-18**: Set up automatic image system for charms with emoji fallback
+- **2025-01-18**: Chain photos already configured and working in client/public/
 
 ## User Preferences
 - Spanish language interface for jewelry app

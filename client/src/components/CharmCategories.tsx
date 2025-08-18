@@ -111,7 +111,30 @@ export const CharmCategories = ({ selectedCharms, onCharmChange, charmInventory 
                       <Card key={charm.id} className={`p-3 text-center ${
                         isOutOfStock ? 'opacity-50 bg-gray-50' : ''
                       }`}>
-                        <div className="text-2xl mb-2">{charm.emoji}</div>
+                        <div className="w-12 h-12 mb-2 mx-auto">
+                          {charm.emoji.startsWith('/') ? (
+                            <img 
+                              src={charm.emoji} 
+                              alt={charm.name}
+                              className="w-full h-full object-cover rounded-lg"
+                              onError={(e) => {
+                                // Si la imagen no carga, muestra el emoji de respaldo
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                target.nextElementSibling!.classList.remove('hidden');
+                              }}
+                            />
+                          ) : (
+                            <div className="text-2xl flex items-center justify-center h-full">{charm.emoji}</div>
+                          )}
+                          {charm.emoji.startsWith('/') && (
+                            <div className="hidden text-2xl flex items-center justify-center h-full">
+                              {charm.category === 'iniciales' ? '🅰️' : 
+                               charm.category === 'colores' ? '💖' : 
+                               charm.category === 'dorados' ? '⭐' : '🐾'}
+                            </div>
+                          )}
+                        </div>
                         <h4 className={`text-sm font-medium mb-1 ${
                           isOutOfStock ? 'text-gray-400' : ''
                         }`}>
