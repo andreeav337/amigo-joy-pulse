@@ -39,12 +39,25 @@ const Index = () => {
     "flor-verde": { price: 9, stock: 5 },
     
     // ⭐ Charms dorados
-    "bota": { price: 18, stock: 2 },
-    "llave-dorada": { price: 15, stock: 1 },
-    "estrella-dorada": { price: 16, stock: 3 },
+    "bota": { price: 5, stock: 2 },
+    "caracola-1": { price: 4, stock: 4 },
+    "brujula": { price: 4, stock: 3 },
     "corazon-dorado": { price: 5, stock: 4 },
-    "herradura-dorada": { price: 14, stock: 1 },
+    "angel": { price: 4, stock: 3 },
     "sol-dorado": { price: 19, stock: 2 },
+    "caracola-roja":{price:3,stock:3},
+    "osito":{price:3,stock:3},
+    "cereza":{price:3,stock:3},
+    "carita":{price:3,stock:3},
+    "luna":{price:3,stock:3},
+    "rayo":{price:3,stock:3},
+    "tacon":{price:3,stock:3},
+    "dinero":{price:3,stock:3},
+    "delfin":{price:3,stock:3},
+    
+      
+    
+  
     
     // 🐾 Animales
     "gato": { price: 12, stock: 7 },

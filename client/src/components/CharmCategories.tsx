@@ -34,12 +34,23 @@ const charmData: Charm[] = [
   { id: "flor-verde", name: "Flor Verde", price: 9, emoji: "💚", category: "goldfilled" },
   
   // Charms Acero
-  { id: "bota", name: "Bota", price: 5, emoji: "/charms/bota.png", category: "acero" },
+  { id: "bota", name: "Bota Vaquera", price: 5, emoji: "/charms/bota.png", category: "acero" },
   { id: "corazon-dorado", name: "Corazón dorado", price: 5, emoji: "/charms/corazon-dorado.png", category: "acero" },
-  { id: "estrella-dorada", name: "Estrella Dorada", price: 16, emoji: "⭐", category: "dorados" },
-  { id: "corazon-dorado", name: "Corazón Dorado", price: 17, emoji: "💛", category: "dorados" },
-  { id: "herradura-dorada", name: "Herradura Dorada", price: 14, emoji: "🧲", category: "dorados" },
-  { id: "sol-dorado", name: "Sol Dorado", price: 19, emoji: "☀️", category: "dorados" },
+  { id: "caracola-1", name: "Caracola ", price: 16, category:"acero", emoji: "/charms/caracola-1.png"},
+  { id: "brujula", name: "Brujula", price: 3, emoji: "/charms/brujula.png", category: "acero" },
+  { id: "angel", name: "Angel", price: 4, emoji: "/charms/angel.png", category: "acero" },
+  { id: "caracola-roja", name: "Caracola Roja", price: 3, emoji: "/charms/caracola-roja.png", category: "acero" },
+  { id: "osito", name: "Osito", price: 4, emoji: "/charms/osito.png", category: "acero" },
+  { id: "cereza", name: "Cereza", price: 4, emoji: "/charms/cereza.png", category: "acero" },
+  { id: "carita", name: "Happy Face", price: 3, emoji: "/charms/carita.png", category: "acero" },
+  { id: "luna", name: "Luna", price: 3, emoji: "/charms/luna.png", category: "acero" },
+  { id: "rayo", name: "Rayo", price: 3, emoji: "/charms/rayo.png", category: "acero" },
+  { id: "dinero", name: "Dinero", price: 3, emoji: "/charms/dinero.png", category: "acero" },
+  { id: "delfin", name: "Delfin", price: 3, emoji: "/charms/delfin.png", category: "acero" },
+  { id: "tacon", name: "Tacon", price: 3, emoji: "/charms/tacon.png", category: "acero" },
+  
+  
+  
   
   // Animales
   { id: "gato", name: "Gatito", price: 12, emoji: "🐱", category: "animales" },
