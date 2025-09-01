@@ -34,7 +34,7 @@ const charmData: Charm[] = [
   { id: "flor-verde", name: "Flor Verde", price: 9, emoji: "💚", category: "goldfilled" },
   
   // Charms Acero
-  { id: "bota-dorada", name: "Bota Vaquera", price: 5, emoji: "👑", category: "acero" },
+  { id: "bota", name: "Bota", price: 5, emoji: "/charms/bota.png", category: "acero" },
   { id: "corazon-dorado", name: "Corazón dorado", price: 5, emoji: "/charms/corazon-dorado.png", category: "acero" },
   { id: "estrella-dorada", name: "Estrella Dorada", price: 16, emoji: "⭐", category: "dorados" },
   { id: "corazon-dorado", name: "Corazón Dorado", price: 17, emoji: "💛", category: "dorados" },

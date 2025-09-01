@@ -39,7 +39,7 @@ const Index = () => {
     "flor-verde": { price: 9, stock: 5 },
     
     // ⭐ Charms dorados
-    "corona-dorada": { price: 18, stock: 2 },
+    "bota": { price: 18, stock: 2 },
     "llave-dorada": { price: 15, stock: 1 },
     "estrella-dorada": { price: 16, stock: 3 },
     "corazon-dorado": { price: 5, stock: 4 },
