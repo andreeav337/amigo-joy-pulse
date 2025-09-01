@@ -202,7 +202,7 @@ const Index = () => {
                         {charmId.replace(/-/g, ' ')} x{quantity}
                       </span>
                       <span className="font-medium">
-                        ${(charmPrices[charmId] || 0) * quantity}.00
+                        ${(charmInventory[charmId]?.price || 0) * quantity}.00
                       </span>
                     </div>
                   );
