@@ -280,80 +280,8 @@ const Index = () => {
               />
             </div>
 
-            {/* COLUMNA DERECHA: Paso 3 - Vista Previa */}
+            {/* COLUMNA DERECHA: Paso 3 y Resumen */}
             <div className="space-y-8">
-              {/* Vista Previa */}
-              <div>
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold">
-                    3
-                  </div>
-                  <h2 className="text-xl font-semibold text-foreground">Vista previa</h2>
-                </div>
-                
-                {/* Imagen del collar */}
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-8 mb-6 min-h-[300px] flex items-center justify-center">
-                  {selectedBase ? (
-                    <div className="text-center">
-                      <img 
-                        src={`/collar-${selectedBase.split('-').slice(1).join('-')}.png`}
-                        alt="Vista previa del collar"
-                        className="w-48 h-48 object-contain mx-auto mb-4"
-                      />
-                      <p className="text-sm text-muted-foreground">
-                        {baseOptions.find(b => b.id === selectedBase)?.name}
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="text-center text-muted-foreground">
-                      <div className="text-4xl mb-4">✨</div>
-                      <p>Selecciona una cadena para ver la vista previa</p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Resumen del pedido */}
-                {(selectedBase || Object.values(selectedCharms).some(qty => qty > 0)) && (
-                  <Card className="p-6 bg-primary/5 border-primary/20">
-                    <h3 className="text-lg font-semibold text-foreground mb-4">Resumen de tu pedido</h3>
-                    
-                    <div className="space-y-2">
-                      {selectedBase && (
-                        <div className="flex justify-between items-center">
-                          <span className="text-muted-foreground">
-                            {baseOptions.find(b => b.id === selectedBase)?.name}
-                          </span>
-                          <span className="font-medium">
-                            ${baseOptions.find(b => b.id === selectedBase)?.price}.00
-                          </span>
-                        </div>
-                      )}
-                      
-                      {Object.entries(selectedCharms).map(([charmId, quantity]) => {
-                        if (quantity === 0) return null;
-                        return (
-                          <div key={charmId} className="flex justify-between items-center">
-                            <span className="text-muted-foreground">
-                              {charmId.replace(/-/g, ' ')} x{quantity}
-                            </span>
-                            <span className="font-medium">
-                              ${(charmInventory[charmId]?.price || 0) * quantity}.00
-                            </span>
-                          </div>
-                        );
-                      })}
-                      
-                      <div className="border-t pt-2 mt-4">
-                        <div className="flex justify-between items-center text-lg font-bold">
-                          <span>Total:</span>
-                          <span className="text-primary">${calculateTotal()}.00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                )}
-              </div>
-
               {/* Step 3: Order Input */}
               <OrderInput 
                 orderText={orderText}
@@ -362,6 +290,47 @@ const Index = () => {
                 selectedCharms={selectedCharms}
                 selectedBase={selectedBase}
               />
+
+              {/* Resumen del pedido */}
+              {(selectedBase || Object.values(selectedCharms).some(qty => qty > 0)) && (
+                <Card className="p-6 bg-primary/5 border-primary/20">
+                  <h3 className="text-lg font-semibold text-foreground mb-4">Resumen de tu pedido</h3>
+                  
+                  <div className="space-y-2">
+                    {selectedBase && (
+                      <div className="flex justify-between items-center">
+                        <span className="text-muted-foreground">
+                          {baseOptions.find(b => b.id === selectedBase)?.name}
+                        </span>
+                        <span className="font-medium">
+                          ${baseOptions.find(b => b.id === selectedBase)?.price}.00
+                        </span>
+                      </div>
+                    )}
+                    
+                    {Object.entries(selectedCharms).map(([charmId, quantity]) => {
+                      if (quantity === 0) return null;
+                      return (
+                        <div key={charmId} className="flex justify-between items-center">
+                          <span className="text-muted-foreground">
+                            {charmId.replace(/-/g, ' ')} x{quantity}
+                          </span>
+                          <span className="font-medium">
+                            ${(charmInventory[charmId]?.price || 0) * quantity}.00
+                          </span>
+                        </div>
+                      );
+                    })}
+                    
+                    <div className="border-t pt-2 mt-4">
+                      <div className="flex justify-between items-center text-lg font-bold">
+                        <span>Total:</span>
+                        <span className="text-primary">${calculateTotal()}.00</span>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              )}
             </div>
             
           </div>
