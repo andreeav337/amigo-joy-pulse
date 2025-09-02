@@ -279,9 +279,6 @@ const Index = () => {
           {(selectedBase || Object.values(selectedCharms).some(qty => qty > 0)) && (
             <Card className="p-6 bg-primary/5 border-primary/20">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold">
-                  💰
-                </div>
                 <h2 className="text-xl font-semibold text-foreground">Resumen de tu pedido</h2>
               </div>
               
