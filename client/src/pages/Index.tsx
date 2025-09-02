@@ -2,7 +2,6 @@ import { useState } from "react";
 import { BaseSelector } from "@/components/BaseSelector";
 import { CharmCategories } from "@/components/CharmCategories";
 import { OrderInput } from "@/components/OrderInput";
-import { ImageCarousel } from "@/components/ImageCarousel";
 import { Card } from "@/components/ui/card";
 import { useLocation, Link } from "wouter";
 
@@ -248,110 +247,124 @@ const Index = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
               Crea tu nuevo accesorio favorito
             </h1>
-            <p className="text-muted-foreground max-w-md mx-auto mb-6">
+            <p className="text-muted-foreground max-w-md mx-auto">
               Combina colores, formas y dijes para un accesorio 100% tuyo.
             </p>
-
-            {/* Carrusel de imágenes de ejemplo */}
-            <div className="max-w-2xl mx-auto">
-              <ImageCarousel 
-                images={[
-                  {
-                    src: "@assets/image_1755284911530.png",
-                    alt: "Collar con charms personalizados ejemplo 1"
-                  },
-                  {
-                    src: "@assets/1 (1)_1755286828849.png",
-                    alt: "Collar con charms personalizados ejemplo 2"
-                  },
-                  {
-                    src: "@assets/image_1755287293021.png",
-                    alt: "Collar con charms personalizados ejemplo 3"
-                  },
-                  {
-                    src: "@assets/1 (1)_1755286987272.png",
-                    alt: "Collar con charms personalizados ejemplo 4"
-                  }
-                ]}
-                className="h-64 rounded-lg shadow-lg"
-              />
-            </div>
 
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto space-y-12">
-          {/* Step 1: Base Selection */}
-          <BaseSelector 
-            selectedBase={selectedBase}
-            onSelectBase={setSelectedBase}
-            baseOptions={baseOptions.map(base => ({
-              ...base,
-              type: "collar" as const,
-              image: `/collar-${base.id.split('-').slice(1).join('-')}.png`
-            }))}
-          />
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            {/* COLUMNA IZQUIERDA: Pasos 1 y 2 */}
+            <div className="space-y-8">
+              {/* Step 1: Base Selection */}
+              <BaseSelector 
+                selectedBase={selectedBase}
+                onSelectBase={setSelectedBase}
+                baseOptions={baseOptions.map(base => ({
+                  ...base,
+                  type: "collar" as const,
+                  image: `/collar-${base.id.split('-').slice(1).join('-')}.png`
+                }))}
+              />
 
-          {/* Step 2: Charm Categories */}
-          <CharmCategories 
-            selectedCharms={selectedCharms}
-            onCharmChange={handleCharmChange}
-            charmInventory={charmInventory}
-          />
+              {/* Step 2: Charm Categories */}
+              <CharmCategories 
+                selectedCharms={selectedCharms}
+                onCharmChange={handleCharmChange}
+                charmInventory={charmInventory}
+              />
+            </div>
 
-          {/* Total Section */}
-          {(selectedBase || Object.values(selectedCharms).some(qty => qty > 0)) && (
-            <Card className="p-6 bg-primary/5 border-primary/20">
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-xl font-semibold text-foreground">Resumen de tu pedido</h2>
-              </div>
-              
-              <div className="space-y-2">
-                {selectedBase && (
-                  <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">
-                      {baseOptions.find(b => b.id === selectedBase)?.name}
-                    </span>
-                    <span className="font-medium">
-                      ${baseOptions.find(b => b.id === selectedBase)?.price}.00
-                    </span>
+            {/* COLUMNA DERECHA: Paso 3 - Vista Previa */}
+            <div className="space-y-8">
+              {/* Vista Previa */}
+              <div>
+                <div className="flex items-center gap-2 mb-6">
+                  <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold">
+                    3
                   </div>
-                )}
-                
-                {Object.entries(selectedCharms).map(([charmId, quantity]) => {
-                  if (quantity === 0) return null;
-                  return (
-                    <div key={charmId} className="flex justify-between items-center">
-                      <span className="text-muted-foreground">
-                        {charmId.replace(/-/g, ' ')} x{quantity}
-                      </span>
-                      <span className="font-medium">
-                        ${(charmInventory[charmId]?.price || 0) * quantity}.00
-                      </span>
-                    </div>
-                  );
-                })}
-                
-                <div className="border-t pt-2 mt-4">
-                  <div className="flex justify-between items-center text-lg font-bold">
-                    <span>Total:</span>
-                    <span className="text-primary">${calculateTotal()}.00</span>
-                  </div>
+                  <h2 className="text-xl font-semibold text-foreground">Vista previa</h2>
                 </div>
-              </div>
-            </Card>
-          )}
+                
+                {/* Imagen del collar */}
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-8 mb-6 min-h-[300px] flex items-center justify-center">
+                  {selectedBase ? (
+                    <div className="text-center">
+                      <img 
+                        src={`/collar-${selectedBase.split('-').slice(1).join('-')}.png`}
+                        alt="Vista previa del collar"
+                        className="w-48 h-48 object-contain mx-auto mb-4"
+                      />
+                      <p className="text-sm text-muted-foreground">
+                        {baseOptions.find(b => b.id === selectedBase)?.name}
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="text-center text-muted-foreground">
+                      <div className="text-4xl mb-4">✨</div>
+                      <p>Selecciona una cadena para ver la vista previa</p>
+                    </div>
+                  )}
+                </div>
 
-          {/* Step 3: Order Input */}
-          <OrderInput 
-            orderText={orderText}
-            onOrderChange={setOrderText}
-            onNext={handleNext}
-            selectedCharms={selectedCharms}
-            selectedBase={selectedBase}
-          />
+                {/* Resumen del pedido */}
+                {(selectedBase || Object.values(selectedCharms).some(qty => qty > 0)) && (
+                  <Card className="p-6 bg-primary/5 border-primary/20">
+                    <h3 className="text-lg font-semibold text-foreground mb-4">Resumen de tu pedido</h3>
+                    
+                    <div className="space-y-2">
+                      {selectedBase && (
+                        <div className="flex justify-between items-center">
+                          <span className="text-muted-foreground">
+                            {baseOptions.find(b => b.id === selectedBase)?.name}
+                          </span>
+                          <span className="font-medium">
+                            ${baseOptions.find(b => b.id === selectedBase)?.price}.00
+                          </span>
+                        </div>
+                      )}
+                      
+                      {Object.entries(selectedCharms).map(([charmId, quantity]) => {
+                        if (quantity === 0) return null;
+                        return (
+                          <div key={charmId} className="flex justify-between items-center">
+                            <span className="text-muted-foreground">
+                              {charmId.replace(/-/g, ' ')} x{quantity}
+                            </span>
+                            <span className="font-medium">
+                              ${(charmInventory[charmId]?.price || 0) * quantity}.00
+                            </span>
+                          </div>
+                        );
+                      })}
+                      
+                      <div className="border-t pt-2 mt-4">
+                        <div className="flex justify-between items-center text-lg font-bold">
+                          <span>Total:</span>
+                          <span className="text-primary">${calculateTotal()}.00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                )}
+              </div>
+
+              {/* Step 3: Order Input */}
+              <OrderInput 
+                orderText={orderText}
+                onOrderChange={setOrderText}
+                onNext={handleNext}
+                selectedCharms={selectedCharms}
+                selectedBase={selectedBase}
+              />
+            </div>
+            
+          </div>
         </div>
       </div>
     </div>
