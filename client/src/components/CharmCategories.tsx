@@ -140,10 +140,10 @@ const categoryNames = {
 };
 
 const categoryDescriptions = {
-  iniciales: "Personaliza con las letras que quieras. Perfecto para nombres, iniciales o palabras especiales.",
-  goldfilled: "Charms con baño de oro que mantienen su brillo por más tiempo. Perfectos para un look elegante.",
+  iniciales: "",
+  goldfilled: "",
   acero: "",
-  otros: "Tenemos: citrino, cuarzo rosa, amatista, jade y más. Cada piedra tiene su propia energía única."
+  otros: ""
 };
 
 // Mensajes específicos para charms individuales
