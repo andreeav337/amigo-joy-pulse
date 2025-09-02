@@ -146,20 +146,16 @@ const categoryDescriptions = {
   otros: "Tenemos: citrino, cuarzo rosa, amatista, jade y más. Cada piedra tiene su propia energía única."
 };
 
-// Función para detectar subcategorías especiales
-const getSpecialDescription = (charms: Charm[]) => {
-  const charmNames = charms.map(c => c.name.toLowerCase());
-  const hasSignos = charms.some(c => c.id.includes('signo'));
-  const hasBrillo = charms.some(c => c.name.toLowerCase().includes('brillo'));
-  
-  if (hasSignos && hasBrillo) {
-    return "✨ **Signos:** Encuentra tu signo zodiacal. **Brillo:** Tenemos algunos colores brillantes para dar luz a tu accesorio.";
-  } else if (hasSignos) {
-    return "✨ **Signos del zodiaco:** Encuentra el charm de tu signo y llévalo siempre contigo.";
-  } else if (hasBrillo) {
-    return "✨ **Efectos de brillo:** Tenemos algunos colores que añaden luz y personalidad a tu accesorio.";
-  }
-  return "";
+// Mensajes específicos para charms individuales
+const charmMessages: { [key: string]: string } = {
+  "cuarzos": "Tenemos: citrino, cuarzo rosa, amatista, jade y más piedras energéticas",
+  "letra-1": "Perfecto para personalizar con tu inicial o la de alguien especial",
+  "letra-2": "Combina varias letras para formar nombres o palabras únicas",
+  "letra-3": "Ideal para crear mensajes personalizados en tu accesorio",
+  "signo-1": "Encuentra tu signo zodiacal y lleva tu energía contigo",
+  "signo-2": "Conecta con las estrellas usando tu signo del zodiaco",
+  "brillo": "Tenemos varios colores brillantes para iluminar tu estilo",
+  "brillo-circulo": "Añade un toque de luz y elegancia a tu accesorio"
 };
 
 export const CharmCategories = ({ selectedCharms, onCharmChange, charmInventory }: CharmCategoriesProps) => {
@@ -215,14 +211,6 @@ export const CharmCategories = ({ selectedCharms, onCharmChange, charmInventory 
                   </div>
                 )}
                 
-                {/* Texto descriptivo especial para subcategorías */}
-                {category === 'acero' && getSpecialDescription(categoryCharms) && (
-                  <div className="bg-primary/5 rounded-lg p-3 mb-4 border border-primary/20">
-                    <p className="text-sm text-foreground" 
-                       dangerouslySetInnerHTML={{__html: getSpecialDescription(categoryCharms).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}}>
-                    </p>
-                  </div>
-                )}
                 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-4">
                   {categoryCharms.map((charm) => {
@@ -270,6 +258,15 @@ export const CharmCategories = ({ selectedCharms, onCharmChange, charmInventory 
                         }`}>
                           ${currentPrice}.00
                         </p>
+                        
+                        {/* Mensaje específico del charm cuando está seleccionado */}
+                        {quantity > 0 && charmMessages[charm.id] && (
+                          <div className="bg-primary/10 border border-primary/20 rounded p-2 mb-2">
+                            <p className="text-xs text-primary font-medium">
+                              ✨ {charmMessages[charm.id]}
+                            </p>
+                          </div>
+                        )}
                         
                         {isOutOfStock ? (
                           <>
