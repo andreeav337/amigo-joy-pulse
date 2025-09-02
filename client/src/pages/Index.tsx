@@ -257,7 +257,7 @@ const Index = () => {
 
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             
             {/* COLUMNA IZQUIERDA: Pasos 1 y 2 */}
             <div className="lg:col-span-3 space-y-8">
@@ -281,7 +281,7 @@ const Index = () => {
             </div>
 
             {/* COLUMNA DERECHA: Paso 3 y Resumen */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="lg:col-span-1 space-y-8">
               {/* Step 3: Order Input */}
               <OrderInput 
                 orderText={orderText}
