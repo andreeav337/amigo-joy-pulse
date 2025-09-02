@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BaseSelector } from "@/components/BaseSelector";
 import { CharmCategories } from "@/components/CharmCategories";
 import { OrderInput } from "@/components/OrderInput";
+import { ImageCarousel } from "@/components/ImageCarousel";
 import { Card } from "@/components/ui/card";
 import { useLocation, Link } from "wouter";
 
@@ -247,9 +248,34 @@ const Index = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
               Crea tu nuevo accesorio favorito
             </h1>
-            <p className="text-muted-foreground max-w-md mx-auto">
+            <p className="text-muted-foreground max-w-md mx-auto mb-6">
               Combina colores, formas y dijes para un accesorio 100% tuyo.
             </p>
+
+            {/* Carrusel de imágenes de ejemplo */}
+            <div className="max-w-2xl mx-auto">
+              <ImageCarousel 
+                images={[
+                  {
+                    src: "@assets/image_1755284911530.png",
+                    alt: "Collar con charms personalizados ejemplo 1"
+                  },
+                  {
+                    src: "@assets/1 (1)_1755286828849.png",
+                    alt: "Collar con charms personalizados ejemplo 2"
+                  },
+                  {
+                    src: "@assets/image_1755287293021.png",
+                    alt: "Collar con charms personalizados ejemplo 3"
+                  },
+                  {
+                    src: "@assets/1 (1)_1755286987272.png",
+                    alt: "Collar con charms personalizados ejemplo 4"
+                  }
+                ]}
+                className="h-64 rounded-lg shadow-lg"
+              />
+            </div>
 
           </div>
         </div>
