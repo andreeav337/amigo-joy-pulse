@@ -289,7 +289,7 @@ export const CharmCategories = ({ selectedCharms, onCharmChange, charmInventory 
                                 className="w-full text-xs"
                                 data-testid={`button-charm-${charm.id}`}
                               >
-                                Agregar
+                                +
                               </Button>
                             ) : (
                               <div className="space-y-2">
