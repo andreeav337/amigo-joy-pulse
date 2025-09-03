@@ -17,70 +17,66 @@ interface BaseSelectorProps {
 
 export const BaseSelector = ({ selectedBase, onSelectBase, baseOptions }: BaseSelectorProps) => {
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-10 h-10 bg-gradient-to-r from-rose-500 to-pink-500 text-white rounded-full flex items-center justify-center font-bold shadow-lg">
+    <div className="space-y-4">
+      <div className="flex items-center gap-2 mb-6">
+        <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold">
           1
         </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-800">Escoge tu modelo de cadena</h2>
-          <p className="text-gray-600 text-sm">Selecciona la base perfecta para tu diseño</p>
-        </div>
+        <h2 className="text-xl font-semibold text-foreground">Escoge tu modelo de cadena</h2>
       </div>
       
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {baseOptions.map((option) => (
           <Card
             key={option.id}
-            className={`p-4 transition-all duration-300 border-2 rounded-xl ${
+            className={`p-3 transition-all ${
               option.stock === 0 
-                ? 'opacity-50 cursor-not-allowed bg-gray-50 border-gray-200' 
+                ? 'opacity-50 cursor-not-allowed bg-gray-100' 
                 : selectedBase === option.id
-                  ? 'border-rose-400 bg-rose-50 cursor-pointer hover:shadow-xl shadow-rose-100 transform hover:scale-105'
-                  : 'cursor-pointer hover:bg-white hover:shadow-xl hover:border-rose-200 transform hover:scale-105 border-gray-200 bg-white'
+                  ? 'ring-2 ring-primary bg-primary/5 cursor-pointer hover:shadow-md'
+                  : 'cursor-pointer hover:bg-gray-50 hover:shadow-md'
             }`}
             onClick={() => option.stock > 0 && onSelectBase(option.id)}
             data-testid={`card-base-${option.id}`}
           >
-            <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg mb-3 overflow-hidden relative">
+            <div className="aspect-square bg-muted rounded-lg mb-2 overflow-hidden">
               <img 
                 src={option.image} 
                 alt={option.name}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
                 onError={(e) => {
+                  // Si la imagen no existe, muestra un placeholder
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                   target.nextElementSibling!.classList.remove('hidden');
                 }}
               />
-              <div className="hidden w-full h-full flex items-center justify-center text-3xl text-gray-400">
-                💿
+              <div className="hidden w-full h-full flex items-center justify-center text-2xl">
+                {option.type === "collar" ? "📿" : "💎"}
               </div>
-              {selectedBase === option.id && (
-                <div className="absolute top-2 right-2 w-6 h-6 bg-rose-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
+            </div>
+            <h3 className={`font-medium mb-1 text-sm ${
+              option.stock === 0 ? 'text-gray-400' : 'text-card-foreground'
+            }`}>
+              {option.name}
+            </h3>
+            <p className={`text-xs ${
+              option.stock === 0 ? 'text-gray-400' : 'text-muted-foreground'
+            }`}>
+              ${option.price}.00
+            </p>
+            
+            {option.stock === 0 ? (
+              <div className="mt-2 px-2 py-1 bg-red-100 text-red-600 text-xs rounded-full w-fit">
+                Agotado
+              </div>
+            ) : (
+              selectedBase === option.id && (
+                <div className="mt-2 px-2 py-1 bg-primary text-primary-foreground text-xs rounded-full w-fit">
                   ✓
                 </div>
-              )}
-            </div>
-            
-            <div className="text-center">
-              <h3 className={`font-semibold mb-1 text-sm leading-tight ${
-                option.stock === 0 ? 'text-gray-400' : 'text-gray-800'
-              }`}>
-                {option.name}
-              </h3>
-              <p className={`text-lg font-bold ${
-                option.stock === 0 ? 'text-gray-400' : 'text-rose-600'
-              }`}>
-                ${option.price}.00
-              </p>
-              
-              {option.stock === 0 && (
-                <div className="mt-2 px-3 py-1 bg-red-100 text-red-600 text-xs rounded-full inline-block">
-                  Agotado
-                </div>
-              )}
-            </div>
+              )
+            )}
           </Card>
         ))}
       </div>

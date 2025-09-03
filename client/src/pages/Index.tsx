@@ -208,64 +208,72 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Banner */}
-      <div className="relative overflow-hidden">
-        {/* Fondo rosa gradiente */}
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-200 via-pink-100 to-rose-300"></div>
-        
-        <div className="relative z-10">
-          <div className="container mx-auto px-4 py-8">
-            <div className="text-center">
-              {/* Logo */}
-              <div className="mb-6">
-                <Link href="/admin-login">
-                  <img 
-                    src="/logo-olan.png" 
-                    alt="Olan Joyería" 
-                    className="h-16 mx-auto hover:scale-105 transition-transform cursor-pointer"
-                  />
-                </Link>
-              </div>
+      {/* Header con Logo */}
+      <div className="border-b border-border">
+        <div className="container mx-auto px-4 py-6">
+          <div className="text-center">
+            {/* Aquí puedes cambiar tu logo - reemplaza el texto por una imagen */}
+            <div className="mb-4">
+              <Link href="/admin-login">
+                <img 
+                  src="/logo-olan.png" 
+                  alt="Olan Joyería" 
+                  className="h-14 mx-auto hover:scale-105 transition-transform cursor-pointer"
+                />
+              </Link>
               
-              {/* Título principal */}
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">
-                Diseña un accesorio tan
-                <br />
-                <span className="text-rose-600">único como tú</span>
-                <span className="ml-2">✨</span>
-              </h1>
+              {/* OPCIONES DE TAMAÑO - Cambia h-16 por cualquiera de estos:
               
-              <p className="text-gray-700 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-                Combina colores, formas y dijes para crear el accesorio perfecto que refleje tu personalidad única.
-              </p>
+              TAMAÑOS PEQUEÑOS:
+              h-8   = 32px de alto (muy pequeño)
+              h-10  = 40px de alto (pequeño)
+              h-12  = 48px de alto (mediano-pequeño)
+              
+              TAMAÑOS MEDIANOS:
+              h-14  = 56px de alto (mediano)
+              h-16  = 64px de alto (actual - recomendado)
+              h-18  = 72px de alto (mediano-grande)
+              
+              TAMAÑOS GRANDES:
+              h-20  = 80px de alto (grande)
+              h-24  = 96px de alto (muy grande)
+              h-28  = 112px de alto (extra grande)
+              h-32  = 128px de alto (súper grande)
+              
+              EJEMPLO: Para logo más grande cambiar:
+              className="h-24 mx-auto hover:scale-105 transition-transform cursor-pointer"
+              */}
             </div>
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+              Crea tu nuevo accesorio favorito
+            </h1>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              Combina colores, formas y dijes para un accesorio 100% tuyo.
+            </p>
+
           </div>
         </div>
-        
-        {/* Decoraciones */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-white/20 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-rose-300/30 rounded-full blur-2xl"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-pink-200/40 rounded-full blur-lg"></div>
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto space-y-8">
+          
+          {/* SECCIÓN 1: Arriba sola - Step 1: Base Selection */}
+          <BaseSelector 
+            selectedBase={selectedBase}
+            onSelectBase={setSelectedBase}
+            baseOptions={baseOptions.map(base => ({
+              ...base,
+              type: "collar" as const,
+              image: `/collar-${base.id.split('-').slice(1).join('-')}.png`
+            }))}
+          />
+
+          {/* SECCIONES 2 Y 3: Abajo en dos columnas */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
-            {/* COLUMNA IZQUIERDA: Pasos 1 y 2 */}
-            <div className="lg:col-span-2 space-y-7">
-              {/* Step 1: Base Selection */}
-              <BaseSelector 
-                selectedBase={selectedBase}
-                onSelectBase={setSelectedBase}
-                baseOptions={baseOptions.map(base => ({
-                  ...base,
-                  type: "collar" as const,
-                  image: `/collar-${base.id.split('-').slice(1).join('-')}.png`
-                }))}
-              />
-
-              {/* Step 2: Charm Categories */}
+            {/* COLUMNA IZQUIERDA: Sección 2 - Charm Categories */}
+            <div className="lg:col-span-2">
               <CharmCategories 
                 selectedCharms={selectedCharms}
                 onCharmChange={handleCharmChange}
@@ -273,7 +281,7 @@ const Index = () => {
               />
             </div>
 
-            {/* COLUMNA DERECHA: Paso 3 y Resumen */}
+            {/* COLUMNA DERECHA: Sección 3 - Order Input y Resumen */}
             <div className="lg:col-span-1 space-y-7">
               {/* Step 3: Order Input */}
               <OrderInput 
