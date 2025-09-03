@@ -30,11 +30,6 @@ const AdminLogin = () => {
     <div className="min-h-screen bg-background flex items-center justify-center">
       <Card className="w-full max-w-md p-6">
         <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-3 text-xl font-bold text-primary mb-2">
-            <span>✨</span>
-            <span>COLOR JOYERÍA</span>
-            <span>✨</span>
-          </div>
           <h2 className="text-2xl font-bold">Acceso Administrativo</h2>
           <p className="text-muted-foreground">
             Ingresa la contraseña para ver los pedidos
@@ -79,12 +74,6 @@ const AdminLogin = () => {
           </div>
         </form>
 
-        <div className="mt-6 p-4 bg-muted rounded-lg">
-          <p className="text-sm text-muted-foreground">
-            <strong>Nota:</strong> La contraseña por defecto es "colorjoyeria2024". 
-            Puedes cambiarla en el archivo AdminLogin.tsx línea 12.
-          </p>
-        </div>
       </Card>
     </div>
   );
