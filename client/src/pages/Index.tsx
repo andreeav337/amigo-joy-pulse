@@ -217,19 +217,6 @@ const Index = () => {
         />
       </div>
 
-      {/* Título Principal - Mismo fondo */}
-      <div className="bg-gray-100 border-b border-border">
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
-              Crea tu nuevo accesorio favorito
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Combina colores, formas y dijes para un accesorio 100% tuyo.
-            </p>
-          </div>
-        </div>
-      </div>
 
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto space-y-8">
