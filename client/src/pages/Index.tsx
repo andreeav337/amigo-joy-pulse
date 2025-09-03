@@ -218,9 +218,9 @@ const Index = () => {
       </div>
 
       {/* Título principal */}
-      <div className="container mx-auto px-4 py-1">
+      <div className="container mx-auto px-4 py-6">
         <div className="text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-0">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-0" style={{color: '#8c69b8'}}>
             Diseña un accesorio tan único como tú
           </h1>
         </div>
