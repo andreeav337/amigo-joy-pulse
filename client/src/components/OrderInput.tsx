@@ -22,11 +22,15 @@ export const OrderInput = ({
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-2 mb-6">
-        <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold">
+      <div className="flex items-start gap-3 mb-6">
+        <div className="w-7 h-7 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0 mt-1">
           3
         </div>
-        <h2 className="text-xl font-semibold text-foreground">Especifica el orden de tus dijes</h2>
+        <div>
+          <h2 className="text-lg font-semibold text-foreground leading-tight">
+            Especifica el orden de tus dijes
+          </h2>
+        </div>
       </div>
 
       <Card className="p-6 space-y-4">
