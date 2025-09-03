@@ -13,33 +13,33 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 30 40% 99%;
-    --foreground: 30 10% 15%;
+    --background: 345 30% 97%;
+    --foreground: 345 15% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 30 10% 15%;
+    --card: 345 20% 99%;
+    --card-foreground: 345 15% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 30 10% 15%;
+    --popover: 345 20% 99%;
+    --popover-foreground: 345 15% 15%;
 
-    --primary: 344 69% 71%;
+    --primary: 344 69% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 25% 90%;
-    --secondary-foreground: 30 10% 15%;
+    --secondary: 345 25% 92%;
+    --secondary-foreground: 345 15% 15%;
 
-    --muted: 45 15% 95%;
-    --muted-foreground: 30 8% 50%;
+    --muted: 345 20% 94%;
+    --muted-foreground: 345 10% 45%;
 
-    --accent: 45 60% 85%;
-    --accent-foreground: 30 10% 15%;
+    --accent: 345 40% 88%;
+    --accent-foreground: 345 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 45 15% 88%;
-    --input: 45 15% 88%;
-    --ring: 45 85% 45%;
+    --border: 345 20% 85%;
+    --input: 345 20% 85%;
+    --ring: 344 69% 65%;
     
     --jewelry-gold: 45 85% 55%;
     --jewelry-rose-gold: 15 75% 65%;
