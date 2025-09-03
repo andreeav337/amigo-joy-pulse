@@ -325,9 +325,6 @@ const Index = () => {
                 className="h-12 mx-auto hover:scale-105 transition-transform cursor-pointer opacity-70 hover:opacity-100"
               />
             </Link>
-            <p className="text-xs text-muted-foreground mt-3">
-              Hecho con ❤️ por Olan Joyería
-            </p>
           </div>
         </div>
       </div>
