@@ -269,11 +269,11 @@ const Index = () => {
             }))}
           />
 
-          {/* SECCIONES 2 Y 3: Abajo en dos columnas */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* SECCIONES 2 Y 3: Abajo en dos columnas mitad y mitad */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
             {/* COLUMNA IZQUIERDA: Sección 2 - Charm Categories */}
-            <div className="lg:col-span-2">
+            <div>
               <CharmCategories 
                 selectedCharms={selectedCharms}
                 onCharmChange={handleCharmChange}
@@ -282,7 +282,7 @@ const Index = () => {
             </div>
 
             {/* COLUMNA DERECHA: Sección 3 - Order Input y Resumen */}
-            <div className="lg:col-span-1 space-y-7">
+            <div className="space-y-7">
               {/* Step 3: Order Input */}
               <OrderInput 
                 orderText={orderText}
