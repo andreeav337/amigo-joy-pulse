@@ -218,7 +218,7 @@ const Index = () => {
       </div>
 
       {/* Título principal */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-1">
         <div className="text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-0">
             Diseña un accesorio tan único como tú
@@ -226,8 +226,8 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-4">
-        <div className="max-w-7xl mx-auto space-y-6">
+      <div className="container mx-auto px-4 py-2">
+        <div className="max-w-7xl mx-auto space-y-8">
           
           {/* SECCIÓN 1: Arriba sola - Step 1: Base Selection */}
           <BaseSelector 
