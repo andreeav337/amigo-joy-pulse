@@ -208,49 +208,36 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header con Logo */}
-      <div className="border-b border-border">
-        <div className="container mx-auto px-4 py-6">
+      {/* BANNER PARA TU IMAGEN - Cambia esta sección */}
+      <div className="relative bg-gradient-to-r from-gray-100 to-gray-200 border-b border-border">
+        <div className="container mx-auto px-4 py-16">
           <div className="text-center">
-            {/* Aquí puedes cambiar tu logo - reemplaza el texto por una imagen */}
-            <div className="mb-4">
-              <Link href="/admin-login">
-                <img 
-                  src="/logo-olan.png" 
-                  alt="Olan Joyería" 
-                  className="h-14 mx-auto hover:scale-105 transition-transform cursor-pointer"
-                />
-              </Link>
-              
-              {/* OPCIONES DE TAMAÑO - Cambia h-16 por cualquiera de estos:
-              
-              TAMAÑOS PEQUEÑOS:
-              h-8   = 32px de alto (muy pequeño)
-              h-10  = 40px de alto (pequeño)
-              h-12  = 48px de alto (mediano-pequeño)
-              
-              TAMAÑOS MEDIANOS:
-              h-14  = 56px de alto (mediano)
-              h-16  = 64px de alto (actual - recomendado)
-              h-18  = 72px de alto (mediano-grande)
-              
-              TAMAÑOS GRANDES:
-              h-20  = 80px de alto (grande)
-              h-24  = 96px de alto (muy grande)
-              h-28  = 112px de alto (extra grande)
-              h-32  = 128px de alto (súper grande)
-              
-              EJEMPLO: Para logo más grande cambiar:
-              className="h-24 mx-auto hover:scale-105 transition-transform cursor-pointer"
-              */}
+            {/* AQUÍ PONES TU IMAGEN DEL BANNER */}
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg">
+                <div className="text-6xl mb-4">🖼️</div>
+                <h2 className="text-xl font-semibold text-gray-700 mb-2">
+                  Espacio para tu imagen del banner
+                </h2>
+                <p className="text-sm text-gray-500">
+                  Reemplaza esta sección con tu imagen en Index.tsx
+                </p>
+              </div>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+          </div>
+        </div>
+      </div>
+
+      {/* Título Principal */}
+      <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border-b border-border">
+        <div className="container mx-auto px-4 py-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
               Crea tu nuevo accesorio favorito
             </h1>
-            <p className="text-muted-foreground max-w-md mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Combina colores, formas y dijes para un accesorio 100% tuyo.
             </p>
-
           </div>
         </div>
       </div>
@@ -334,6 +321,24 @@ const Index = () => {
               )}
             </div>
             
+          </div>
+        </div>
+      </div>
+      
+      {/* Footer con Logo de Olan */}
+      <div className="border-t border-border mt-16 bg-muted/30">
+        <div className="container mx-auto px-4 py-8">
+          <div className="text-center">
+            <Link href="/admin-login">
+              <img 
+                src="/logo-olan.png" 
+                alt="Olan Joyería" 
+                className="h-12 mx-auto hover:scale-105 transition-transform cursor-pointer opacity-70 hover:opacity-100"
+              />
+            </Link>
+            <p className="text-xs text-muted-foreground mt-3">
+              Hecho con ❤️ por Olan Joyería
+            </p>
           </div>
         </div>
       </div>
