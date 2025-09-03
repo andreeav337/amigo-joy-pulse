@@ -141,13 +141,6 @@ Envío: $${calculateShipping()}.00
       <div className="border-b border-border">
         <div className="container mx-auto px-4 py-6">
           <div className="text-center">
-            <div className="mb-4">
-              <div className="inline-flex items-center gap-3 text-2xl font-bold text-primary">
-                <span>✨</span>
-                <span>COLOR JOYERÍA</span>
-                <span>✨</span>
-              </div>
-            </div>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
               Finalizar Pedido
             </h1>
