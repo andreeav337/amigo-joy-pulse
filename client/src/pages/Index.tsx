@@ -208,24 +208,17 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* BANNER PARA TU IMAGEN - Cambia esta sección */}
-      <div className="relative bg-gradient-to-r from-gray-100 to-gray-200 border-b border-border">
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center">
-            {/* TU IMAGEN DEL BANNER */}
-            <div className="max-w-4xl mx-auto">
-              <img 
-                src="/banner-principal.png" 
-                alt="Banner principal" 
-                className="w-full h-64 object-cover rounded-xl shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
+      {/* BANNER PARA TU IMAGEN - A todo lo ancho */}
+      <div className="relative">
+        <img 
+          src="/banner-principal.png" 
+          alt="Banner principal" 
+          className="w-full h-64 object-cover"
+        />
       </div>
 
-      {/* Título Principal */}
-      <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border-b border-border">
+      {/* Título Principal - Mismo fondo */}
+      <div className="bg-gray-100 border-b border-border">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
