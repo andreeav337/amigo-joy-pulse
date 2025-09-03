@@ -212,17 +212,13 @@ const Index = () => {
       <div className="relative bg-gradient-to-r from-gray-100 to-gray-200 border-b border-border">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center">
-            {/* AQUÍ PONES TU IMAGEN DEL BANNER */}
+            {/* TU IMAGEN DEL BANNER */}
             <div className="max-w-4xl mx-auto">
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg">
-                <div className="text-6xl mb-4">🖼️</div>
-                <h2 className="text-xl font-semibold text-gray-700 mb-2">
-                  Espacio para tu imagen del banner
-                </h2>
-                <p className="text-sm text-gray-500">
-                  Reemplaza esta sección con tu imagen en Index.tsx
-                </p>
-              </div>
+              <img 
+                src="/banner-principal.png" 
+                alt="Banner principal" 
+                className="w-full h-64 object-cover rounded-xl shadow-lg"
+              />
             </div>
           </div>
         </div>
